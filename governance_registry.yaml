@@ -1,0 +1,63 @@
+version: v1.0.0
+last_updated: 2025-08-30T16:17:00-04:00
+location: ai-governance-ecosystem/governance_registry.yaml
+
+file_naming_policy:
+  status: enforced
+  directive: No renaming of existing files without explicit approval
+  naming_confirmation_required: true
+  approved_exceptions:
+    - chatgpt.md → inject_template_chatgpt.md
+
+execution_policy:
+  HALT_ON_ASSUMPTION:
+    status: enforced
+    description: Stop execution if scope, source, or constraints are unclear
+
+source_validation:
+  status: enforced
+  directive: Always re-validate live repo before proposing updates
+
+prompt_templates:
+  universal_template:
+    path: prompt_injection/inject_templates/universal_wrapper.md
+    version: v1.0.0
+    usage: Base scaffold for all platform-specific prompt wrappers
+  platform_variants:
+    - inject_template_claude.md
+    - inject_template_copilot.md
+    - inject_template_chatgpt.md
+    - inject_template_gemini.md
+    - inject_template_nero.md
+  update_policy:
+    directive: All platform variants must derive from universal_template v1.0.0
+    extension_allowed: Only when platform-specific constraints are validated
+    naming_confirmation_required: true
+
+project_scopes:
+  universal_types:
+    - Macro_Generation
+    - Config_Validation
+    - Code_Review
+    - Agent_Overlay
+    - Lifecycle_Audit
+  breakdown_layers:
+    - Scope_Type
+    - Platform
+    - Validation_Method
+    - Node
+  node_definition:
+    directive: Node is the lowest granularity (e.g., FLSUN printer)
+    governance_logic: prohibited
+    usage: Data source only for validation
+    promotion_policy:
+      requires:
+        - PHASE:VALIDATED
+        - mutation_log entry
+        - user approval
+
+structural_constraints:
+  directory_structure:
+    prompt_injection_path: prompt_injection/inject_templates/
+    test_node: tasks/.../FLSUN_S1_Config_Code/
+    production_integration: conditional
