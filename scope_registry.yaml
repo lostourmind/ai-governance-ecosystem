@@ -1,0 +1,13 @@
+version: v0.1.0
+last_updated: [INSERT TIMESTAMP]
+project_scopes:
+  - Macro_Generation
+  - Config_Validation
+  - Code_Review
+  - Agent_Overlay
+  - Lifecycle_Audit
+breakdown_layers:
+  - Scope_Type
+  - Platform
+  - Validation_Method
+  - Node

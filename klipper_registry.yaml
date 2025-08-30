@@ -1,0 +1,10 @@
+version: v0.1.0
+last_updated: [INSERT TIMESTAMP]
+klipper_governance:
+  macro_structure: clause-disciplined
+  printer_state_preservation: required
+  rollback_logic: mutation-logged
+  lifecycle_tags:
+    - PHASE:INIT
+    - PHASE:VALIDATED
+    - PHASE:ROLLBACK

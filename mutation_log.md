@@ -1,9 +1,9 @@
 
-[PHASE:CONSOLIDATION]
-Status: Active
-Trigger: Prior outputs show breach behavior and assumption drift
+[PHASE:SETPOINT]
+Status: Registry scaffolds committed
 Action:
-- Stage all prior artifacts in /consolidation/
-- Validate each against governance criteria
-- Move confirmed outputs to /known_truths/
-- Mutation-log all breaches, conflicts, and discarded fragments
+- All future scaffolds must reference these registries
+- Validation flows must begin with governance_registry.yaml
+- No execution permitted if registry unverifiable
+- Prompt wrappers must inherit from declared scope paths
+Directive: Registry-first enforcement locked in
