@@ -1,97 +1,231 @@
-version: v1.0.1  
-last_updated: 2025-08-30T19:30:00-04:00  
-enforcement_policy: HALT_ON_ASSUMPTION  
+# governance_registry.yaml created by enhancement tool
 
-layer_model:
-  root: project
-  branches:
-    - project.scope
-    - project.coding
-    - project.coding.klipper
-    - project.coding.klipper.variant
-    - project.platform
+# === Enhancements added 2025-08-31 ===
 
-source_validation:
-  git_reference_format: raw
+# === CROSS-PLATFORM HANDOFF PROTOCOL ===
+cross_platform_handoff:
   enforcement: required
-  fallback: prohibited
-  halt_on_rendered_link: true
-
-prompt_templates:
-  inheritance: universal_wrapper.md
-  source_validation: enforced
-  lifecycle_tags:
-    - PHASE:INIT
-    - PHASE:VALIDATED
-    - PHASE:ROLLBACK
-    - PHASE:SETPOINT
-    - PHASE:QUARANTINE
-
-handoff_protocol:
-  required_fields:
+  validation_sequence:
+    - registry_check
+    - capability_match
+    - authority_confirm
+    - rollback_anchor_establish
+  failure_protocol: halt_and_delegate
+  mutation_log_required: true
+  handoff_context_requirements:
+    - session_id
     - source_tool
     - target_tool
     - task_scope
+    - capability_requirements
+    - authority_boundaries
+    - success_criteria
+    - failure_conditions
     - rollback_anchor
-    - lifecycle_phase
-  validation_required: true
-  context_registry: context_registry.yaml
 
-gate_controls:
-  code_quality: enforced
-  scope_drift: monitored
-  progress_validation: required
-  rollback_logic: mutation-logged
+
+# === DEPRECATED TASKS REGISTRY ===
+deprecated_tasks:
+  image_restoration_ai:
+    status: quarantined_all_platforms
+    reason: likeness_retention_failure
+    test_failure_reference: "SeaWorld_photo_restoration_2025_08_30"
+    platforms_affected: [Claude, Copilot, ChatGPT, Gemini]
+    approved_alternatives: [Nero_AI, ESRGAN, Real_ESRGAN, GFPGAN]
+    enforcement: immediate_halt
+  code_execution_ai:
+    status: capability_gap_documented
+    reason: output_cannot_be_verified
+    platforms_affected: [Claude, ChatGPT]
+    alternative: user_environment_execution
+    enforcement: delegate_to_user
+  likeness_retention_ai:
+    status: unsupported_all_platforms
+    reason: feature_accuracy_failure
+    alternative: external_specialized_tools
+    enforcement: immediate_halt
+
+
+# === PLATFORM CAPABILITIES MATRIX ===
+platform_capabilities:
+  Claude:
+    execution_capability: false
+    strengths: [analysis, code_generation, recommendations, documentation]
+    limitations: [no_execution, no_file_modification, no_image_processing]
+    image_restoration: deprecated
+    handoff_trigger: execution_required
+    authority_boundaries: [read, analyze, recommend, delegate]
+  Copilot:
+    execution_capability: limited_sandbox
+    strengths: [scaffolding, templates, github_integration, repository_access]
+    limitations: [limited_execution_environment, no_image_remastering]
+    image_restoration: deprecated
+    handoff_trigger: complex_analysis_required
+    authority_boundaries: [read, modify_github_context, scaffold, template]
+  ChatGPT:
+    execution_capability: false
+    strengths: [lightweight_validation, quick_responses, file_generation]
+    limitations: [poor_load_handling, context_compression, no_execution]
+    image_restoration: deprecated
+    handoff_trigger: heavy_computation_required
+    authority_boundaries: [read, validate_lightweight, generate_files]
+  Gemini:
+    execution_capability: unknown_pending_validation
+    strengths: [to_be_determined]
+    limitations: [to_be_determined]
+    image_restoration: deprecated
+    handoff_trigger: capability_assessment_required
+    authority_boundaries: [to_be_validated]
+  External_Tools:
+    image_processing:
+      approved_tools: [Nero_AI, ESRGAN, Real_ESRGAN, GFPGAN]
+      capability: specialized_image_restoration
+      authority: full_image_modification
+    execution_environments:
+      user_local: full_execution_capability
+      cloud_services: platform_dependent
+      sandboxes: limited_capability
+
+
+# === SESSION MANAGEMENT PROTOCOLS ===
+session_management:
+  new_session_triggers:
+    - major_platform_handoff
+    - scope_boundary_change
+    - governance_violation_recovery
+    - context_length_threshold_exceeded
+    - task_type_fundamental_change
+  session_continuation_appropriate:
+    - iterative_refinement_within_scope
+    - progressive_validation_checkpoints
+    - mutation_log_building_within_task
+    - rollback_scenarios_within_objective
+  context_transfer_requirements:
+    critical_elements:
+      - governance_registry_reference
+      - active_constraints_and_boundaries
+      - capability_declarations_current
+      - rollback_anchors_established
+      - mutation_log_critical_entries
+    elements_to_discard:
+      - conversational_tangents
+      - failed_approaches_documented
+      - exploratory_discussions_resolved
+      - historical_context_not_scope_relevant
 
 mutation_log_reference:
-  - [PHASE:VALIDATED] Registry updated for multi-agent orchestration
-  - [PHASE:SETPOINT] Raw file enforcement locked
-  - [PHASE:QUARANTINE] Historical ambiguity flushed
+  - [PHASE:CROSS_PLATFORM] Multi-platform exchange protocols implemented
+  - [PHASE:QUARANTINE] AI image restoration deprecated based on test failures
+  - [PHASE:CAPABILITY_MATRIX] Platform boundaries documented and enforced
+  - [PHASE:SESSION_DISCIPLINE] Hybrid session management protocols established
 
-section_a:
-  execution_safeguard:
-    registry_enforcement:
-      required: true
-      source: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/governance_registry.yaml
-      halt_if_unavailable: true
-      validate_before_response: true
-      validate_before_scaffold: true
+# === Final Governance Enhancements (2025-08-31) ===
+# === PLATFORM SUBSCRIPTION STATUS AND AUTHORITY ===
+platform_subscription_status:
+  last_updated: "2025-08-31T13:30:00-04:00"
+  tier_1_primary_platforms:
+    Claude_Sonnet_4_Pro:
+      subscription_tier: Pro
+      primary_authority: [governance_design, complex_analysis, handoff_orchestration]
+      reliability_rating: high
+      cost_effectiveness: high_value_for_governance_tasks
+    ChatGPT_Plus:
+      subscription_tier: Plus
+      primary_authority: [file_generation, repository_processing, batch_operations]
+      reliability_rating: high_for_designated_tasks
+      cost_effectiveness: high_value_for_file_operations
+    Nero_AI_Image_Pro:
+      subscription_tier: Pro_Pay_Per_Credit
+      primary_authority: [image_restoration, image_upscaling, likeness_retention]
+      reliability_rating: proven_effective
+      cost_effectiveness: justified_for_specialized_image_tasks
+      validation_status: approved_for_quarantined_ai_tasks
+    Nero_AI_Video_Pro:
+      subscription_tier: Pro_Annual
+      primary_authority: [video_processing, video_enhancement, video_restoration]
+      reliability_rating: high_for_video_specialization
+      cost_effectiveness: justified_for_video_tasks
 
-    lifecycle_enforcement:
-      required_tags:
-        - PHASE:INIT
-        - PHASE:VALIDATED
-        - PHASE:ROLLBACK
-        - PHASE:SETPOINT
-        - PHASE:QUARANTINE
-      halt_on_missing_tag: true
-      enforce_phase_transitions: true
+  tier_2_secondary_platforms:
+    Gemini_Upgraded:
+      subscription_tier: Premium
+      status: underutilized_pending_use_case_identification
+      primary_authority: [pending_capability_assessment]
+      reliability_rating: unknown_requires_testing
+      cost_effectiveness: unclear_pending_utilization
 
-    inheritance_model:
-      wrapper: universal_wrapper.md
-      platform_templates:
-        - inject_template_claude.md
-        - inject_template_copilot.md
-        - inject_template_chatgpt.md
-        - inject_template_gemini.md
-        - inject_template_nero.md
-      task_overlays:
-        enabled: true
-        override_policy: constraints_only
-        source_required: true
+  tier_3_limited_platforms:
+    Copilot_Free:
+      subscription_tier: Free
+      status: downgraded_due_to_drift_and_performance_issues
+      primary_authority: [basic_github_operations_only]
+      reliability_rating: low_due_to_tier_limitations
+      cost_effectiveness: poor_value_even_at_free_tier
+      limitation_reason: frequent_drift_unclear_upgrade_benefit
 
-    drift_detection:
-      enabled: true
-      triggers:
-        - undeclared inheritance
-        - node-level scaffolding
-        - fallback logic insertion
-        - registry reference omission
-      halt_on_trigger: true
-      mutation_log_required: true
+# === ZERO ASSUMPTION REVALIDATION PROTOCOL ===
+zero_assumption_governance:
+  enforcement_policy: MANDATORY_REGISTRY_REVALIDATION_EVERY_HANDOFF
+  revalidation_requirements:
+    frequency: every_platform_exchange
+    scope: complete_governance_registry_refresh
+    assumption_level: zero_prior_governance_knowledge
+    validation_source: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/governance_registry.yaml
+  mandatory_steps_every_handoff:
+    - fetch_current_governance_registry_from_source
+    - validate_against_any_existing_governance_assumptions
+    - update_constraints_and_boundaries_if_registry_changed
+    - refresh_platform_capability_boundaries_and_authority
+    - mutation_log_governance_revalidation_completion
+    - proceed_only_after_governance_confirmation
+  no_exceptions_enforcement:
+    - applies_to_session_continuation
+    - applies_to_iterative_handoffs_within_same_conversation
+    - applies_even_if_registry_recently_validated_in_session
+    - enforced_regardless_of_platform_familiarity_with_governance
+    - mandatory_even_for_simple_or_quick_tasks
+  failure_protocol:
+    registry_inaccessible: HALT_ALL_OPERATIONS
+    registry_changed_since_last_validation: UPDATE_AND_REVALIDATE
+    governance_assumptions_outdated: REFRESH_AND_CONTINUE
+    platform_authority_changed: UPDATE_BOUNDARIES_AND_PROCEED
 
-    audit_integrity:
-      mutation_log_reference:
-        - [PHASE:VALIDATED] Execution safeguard inserted
-        - [PHASE:SETPOINT] Registry enforcement locked
-        - [PHASE:QUARANTINE] Drift triggers flushed
+# === PLATFORM ROUTING OPTIMIZATION ===
+optimal_task_routing:
+  governance_design_and_analysis:
+    primary: Claude_Sonnet_4_Pro
+    justification: subscription_tier_and_proven_governance_capability
+  file_generation_and_repository_operations:
+    primary: ChatGPT_Plus
+    justification: subscription_tier_and_proven_file_processing_capability
+  image_processing_tasks:
+    primary: Nero_AI_Image_Pro
+    justification: proven_effective_and_cost_justified_for_specialized_tasks
+    ai_platforms: QUARANTINED_due_to_test_failures
+  video_processing_tasks:
+    primary: Nero_AI_Video_Pro
+    justification: professional_tier_subscription_and_specialization
+  github_operations:
+    primary: user_direct_operations
+    secondary: ChatGPT_Plus_for_file_generation
+    avoid: Copilot_Free_due_to_reliability_issues
+  experimental_tasks:
+    candidate: Gemini_Upgraded
+    status: pending_capability_assessment_and_use_case_identification
+    authority: limited_until_proven_effective
+
+# === COST OPTIMIZATION GUIDANCE ===
+cost_effectiveness_analysis:
+  high_value_subscriptions:
+    - Claude_Sonnet_4_Pro: governance_and_complex_analysis_tasks
+    - ChatGPT_Plus: file_operations_and_repository_processing
+    - Nero_AI_Image_Pro: specialized_image_tasks_when_needed
+    - Nero_AI_Video_Pro: specialized_video_tasks_when_needed
+  underutilized_subscriptions:
+    - Gemini_Upgraded: requires_use_case_identification_or_consider_downgrade
+  problematic_subscriptions:
+    - Copilot_Free: poor_performance_even_at_no_cost_consider_elimination
+  optimization_recommendations:
+    - maintain_tier_1_subscriptions_for_proven_value
+    - assess_Gemini_utilization_within_evaluation_period
+    - avoid_Copilot_upgrade_until_drift_issues_resolved

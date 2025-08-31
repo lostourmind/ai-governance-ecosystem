@@ -1,0 +1,97 @@
+version: v1.0.1  
+last_updated: 2025-08-30T19:30:00-04:00  
+enforcement_policy: HALT_ON_ASSUMPTION  
+
+layer_model:
+  root: project
+  branches:
+    - project.scope
+    - project.coding
+    - project.coding.klipper
+    - project.coding.klipper.variant
+    - project.platform
+
+source_validation:
+  git_reference_format: raw
+  enforcement: required
+  fallback: prohibited
+  halt_on_rendered_link: true
+
+prompt_templates:
+  inheritance: universal_wrapper.md
+  source_validation: enforced
+  lifecycle_tags:
+    - PHASE:INIT
+    - PHASE:VALIDATED
+    - PHASE:ROLLBACK
+    - PHASE:SETPOINT
+    - PHASE:QUARANTINE
+
+handoff_protocol:
+  required_fields:
+    - source_tool
+    - target_tool
+    - task_scope
+    - rollback_anchor
+    - lifecycle_phase
+  validation_required: true
+  context_registry: context_registry.yaml
+
+gate_controls:
+  code_quality: enforced
+  scope_drift: monitored
+  progress_validation: required
+  rollback_logic: mutation-logged
+
+mutation_log_reference:
+  - [PHASE:VALIDATED] Registry updated for multi-agent orchestration
+  - [PHASE:SETPOINT] Raw file enforcement locked
+  - [PHASE:QUARANTINE] Historical ambiguity flushed
+
+section_a:
+  execution_safeguard:
+    registry_enforcement:
+      required: true
+      source: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/governance_registry.yaml
+      halt_if_unavailable: true
+      validate_before_response: true
+      validate_before_scaffold: true
+
+    lifecycle_enforcement:
+      required_tags:
+        - PHASE:INIT
+        - PHASE:VALIDATED
+        - PHASE:ROLLBACK
+        - PHASE:SETPOINT
+        - PHASE:QUARANTINE
+      halt_on_missing_tag: true
+      enforce_phase_transitions: true
+
+    inheritance_model:
+      wrapper: universal_wrapper.md
+      platform_templates:
+        - inject_template_claude.md
+        - inject_template_copilot.md
+        - inject_template_chatgpt.md
+        - inject_template_gemini.md
+        - inject_template_nero.md
+      task_overlays:
+        enabled: true
+        override_policy: constraints_only
+        source_required: true
+
+    drift_detection:
+      enabled: true
+      triggers:
+        - undeclared inheritance
+        - node-level scaffolding
+        - fallback logic insertion
+        - registry reference omission
+      halt_on_trigger: true
+      mutation_log_required: true
+
+    audit_integrity:
+      mutation_log_reference:
+        - [PHASE:VALIDATED] Execution safeguard inserted
+        - [PHASE:SETPOINT] Registry enforcement locked
+        - [PHASE:QUARANTINE] Drift triggers flushed

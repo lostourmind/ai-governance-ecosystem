@@ -1,0 +1,38 @@
+# ENHANCED VERSION WITH EXTERNAL TOOL STATUS
+
+quarantined_tasks:
+  image_restoration_ai_platforms:
+    status: deprecated_all_ai_platforms
+    scope: [Claude, Copilot, ChatGPT, Gemini]
+    test_failure_evidence:
+      date: "2025-08-30"
+      test_case: "SeaWorld_photo_restoration"
+      failure_mode: "likeness_retention_failure"
+    approved_external_alternatives:
+      Nero_AI_Image_Pro:
+        subscription_status: active_pro_pay_per_credit
+        capability: image_upscaling_and_restoration
+        validation_status: proven_effective_for_likeness_retention
+        cost_model: credit_based_appropriate_for_specialized_tasks
+        authority: full_image_modification_capability
+    enforcement_action: immediate_halt_with_delegation_to_nero_ai
+
+  code_execution_without_validation:
+    status: capability_gap_all_ai_platforms
+    scope: [Claude, ChatGPT, Copilot, Gemini]
+    issue: "cannot_validate_generated_code_output"
+    approved_alternatives:
+      user_environment_execution: preferred_method
+      ai_guidance_with_user_validation: supported_approach
+    enforcement_action: halt_and_delegate_to_user_environment
+
+  video_processing_tasks:
+    status: specialized_external_tool_required
+    ai_capability: limited_or_nonexistent
+    approved_external_alternatives:
+      Nero_AI_Video_Pro:
+        subscription_status: active_pro_annual
+        capability: professional_video_processing_and_enhancement
+        authority: full_video_modification_capability
+        cost_effectiveness: justified_for_specialized_video_tasks
+    enforcement_action: immediate_delegation_to_nero_ai_video
