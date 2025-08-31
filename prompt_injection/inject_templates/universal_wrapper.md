@@ -8,6 +8,11 @@ platform: [INSERT PLATFORM NAME]
 objective: [INSERT OBJECTIVE]
 source_declared: [INSERT SOURCE URL OR FILE PATH]
 
+# === REGISTRY INTEGRATION ===
+governance_registry_source: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/governance_registry.yaml
+layer_path: [INSERT GRANULAR PATH] # e.g., project.coding.klipper.variant.delta
+registry_validation: ENFORCED
+
 # === ENHANCED GOVERNANCE FRAMEWORK ===
 governance_level: MULTI_AI_ORCHESTRATION
 session_persistence: ENABLED
@@ -266,12 +271,36 @@ rollback_framework:
 5. [Enhanced Wrapper + Claude] Provides completion audit and next-phase prep
 ```
 
+### Granular Path Examples
+
+#### FLSUN S1 Delta Printer Configuration
+```yaml
+layer_path: project.coding.klipper.variant.delta.flsun_s1
+constraints_inherited:
+  - project: scope and lifecycle management
+  - coding: language-specific validation  
+  - klipper: macro safety and restart logic
+  - variant.delta: geometry constraints and movement validation
+  - flsun_s1: factory firmware lockdown and pin mapping
+```
+
+#### Generic Python Project  
+```yaml
+layer_path: project.coding.python.web_api
+constraints_inherited:
+  - project: scope and lifecycle management
+  - coding: language-specific validation
+  - python: PEP compliance and security standards
+  - web_api: authentication and vulnerability scanning
+```
+
 ### Handoff Context Example
 ```yaml
 handoff_context:
-  session_id: "code_review_session_2025_08_30_001"
+  session_id: "klipper_config_session_2025_08_30_001"
   upstream_tool: "GitHub_Copilot_v1.100.0"
-  task_summary: "Review Python API authentication module for security compliance"
+  task_summary: "Generate FLSUN S1 bed leveling macro with factory firmware constraints"
+  layer_path: "project.coding.klipper.variant.delta.flsun_s1"
   
   scope_definition:
     boundaries: ["security_analysis", "code_quality_review", "documentation_assessment"]
