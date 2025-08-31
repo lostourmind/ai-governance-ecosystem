@@ -1,0 +1,43 @@
+# Node-Specific Constraints Template
+constraints:
+  hard_limits:
+    - constraint: "[ABSOLUTE_LIMITATION]"
+      reason: "[TECHNICAL_OR_BUSINESS_JUSTIFICATION]"
+      enforcement: mandatory
+
+  soft_limits:
+    - constraint: "[RECOMMENDED_BOUNDARY]"
+      reason: "[BEST_PRACTICE_JUSTIFICATION]"
+      enforcement: advisory
+
+  compatibility_requirements:
+    - requirement: "[COMPATIBILITY_NEED]"
+      applies_to: "[SPECIFIC_CONTEXT]"
+      validation_method: "[HOW_TO_VERIFY]"
+
+dependencies:
+  required:
+    - name: "[DEPENDENCY_NAME]"
+      version: "[VERSION_REQUIREMENT]"
+      source: "[WHERE_TO_OBTAIN]"
+
+  optional:
+    - name: "[OPTIONAL_DEPENDENCY]"
+      benefit: "[WHAT_IT_ENABLES]"
+      alternative: "[FALLBACK_OPTION]"
+
+platform_specifics:
+  ai_tool_considerations:
+    claude: []
+    chatgpt: []
+    copilot: []
+    gemini: []
+
+  external_tool_integrations:
+    nero_ai: []
+    specialized_tools: []
+
+mutation_log:
+  - "[PHASE:CONSTRAINTS] Node-specific limitations documented"
+  - "[PHASE:DEPENDENCIES] Required and optional dependencies identified"
+  - "[PHASE:PLATFORM] AI tool specific considerations added"

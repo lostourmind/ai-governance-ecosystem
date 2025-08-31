@@ -1,0 +1,45 @@
+# Standardized Knowledge Base Template
+node_info:
+  path: "[PROJECT.CATEGORY.SUBCATEGORY.SPECIFIC]"
+  description: "[BRIEF_DESCRIPTION_OF_NODE_DOMAIN]"
+  last_updated: "[ISO_8601_TIMESTAMP]"
+  maintained_by: "[MAINTAINER_IDENTIFIER]"
+
+platform_constraints:
+  dos:
+    - "[SPECIFIC_RECOMMENDED_PRACTICE_1]"
+    - "[SPECIFIC_RECOMMENDED_PRACTICE_2]"
+  donts:
+    - "[SPECIFIC_PRACTICE_TO_AVOID_1]"
+    - "[SPECIFIC_PRACTICE_TO_AVOID_2]"
+  critical_requirements:
+    - "[MANDATORY_REQUIREMENT_1]"
+    - "[MANDATORY_REQUIREMENT_2]"
+
+compatibility_matrix:
+  supported_platforms: []
+  version_dependencies: {{}}
+  integration_requirements: {{}}
+  known_conflicts: []
+
+common_failure_patterns:
+  - pattern: "[DESCRIPTION_OF_FAILURE]"
+    cause: "[ROOT_CAUSE_ANALYSIS]"
+    solution: "[PROVEN_RESOLUTION]"
+    prevention: "[PREVENTIVE_MEASURES]"
+
+optimization_guidelines:
+  performance: []
+  security: []
+  maintainability: []
+  scalability: []
+
+validation_criteria:
+  success_metrics: []
+  quality_gates: []
+  testing_requirements: []
+  acceptance_criteria: []
+
+mutation_log:
+  - "[PHASE:CREATED] Node knowledge base initialized"
+  - "[PHASE:VALIDATED] Initial constraints and patterns documented"

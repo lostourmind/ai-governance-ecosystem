@@ -1,0 +1,44 @@
+constraints:
+  hard_limits:
+    - constraint: "No config writes during active print"
+      reason: "Avoid corrupt states and mid-move parameter jumps"
+      enforcement: mandatory
+    - constraint: "Z homing must be guarded"
+      reason: "Prevent nozzle-bed crashes"
+      enforcement: mandatory
+
+  soft_limits:
+    - constraint: "Accel trials capped to hardware envelope until validated"
+      reason: "Reduce risk during exploration"
+      enforcement: advisory
+
+  compatibility_requirements:
+    - requirement: "save_variables configured and readable at startup"
+      applies_to: "all CoreXY configs"
+      validation_method: "checksum at startup and test write/read"
+
+dependencies:
+  required:
+    - name: "Klipper"
+      version: ">=0.11"
+      source: "https://www.klipper3d.org"
+  optional:
+    - name: "ADXL345"
+      benefit: "Accurate resonance characterization"
+      alternative: "Manual tuning with test artifacts"
+
+platform_specifics:
+  ai_tool_considerations:
+    chatgpt:
+      - "Prefer explicit mutation logs for each persistent change"
+    claude:
+      - "Return conservative defaults when knowledge gaps detected"
+
+  external_tool_integrations:
+    specialized_tools:
+      - "MCU temp telemetry for driver safety"
+
+mutation_log:
+  - "[PHASE:CONSTRAINTS] Node-specific limitations documented"
+  - "[PHASE:DEPENDENCIES] Required and optional dependencies identified"
+  - "[PHASE:PLATFORM] AI tool specific considerations added"

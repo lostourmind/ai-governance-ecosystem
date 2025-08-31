@@ -1,0 +1,21 @@
+# Minimal schema description for validation
+schemas:
+  required_files:
+    - knowledge_base.yaml
+    - supplement_prompt.md
+    - constraints.yaml
+  knowledge_base:
+    required_keys:
+      - node_info.path
+      - node_info.description
+      - platform_constraints
+      - validation_criteria
+  constraints:
+    required_keys:
+      - constraints
+      - dependencies
+  supplement_prompt:
+    required_sections:
+      - node_context
+      - Node-Specific Context Injection
+      - Validation Requirements

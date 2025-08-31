@@ -1,0 +1,40 @@
+constraints:
+  hard_limits:
+    - constraint: "No PII exposure without policy-approved masking"
+      reason: "Compliance"
+      enforcement: mandatory
+    - constraint: "No SELECT * in production DataFlows"
+      reason: "Prevent schema drift failures"
+      enforcement: mandatory
+
+  soft_limits:
+    - constraint: "Limit joins to verified grain with explicit keys"
+      reason: "Predictable performance and correctness"
+      enforcement: advisory
+
+  compatibility_requirements:
+    - requirement: "Connector quotas observed"
+      applies_to: "All external data sources"
+      validation_method: "Quota headroom check before backfills"
+
+dependencies:
+  required:
+    - name: "Domo platform access"
+      version: "current"
+      source: "Domo tenant"
+  optional:
+    - name: "Source DB indexes"
+      benefit: "Faster pushdown operations"
+      alternative: "Pre-aggregation in staging"
+
+platform_specifics:
+  ai_tool_considerations:
+    chatgpt:
+      - "Request dataset grain and lineage before suggesting SQL rewrites"
+    claude:
+      - "Return minimal example queries with notes on grain"
+
+mutation_log:
+  - "[PHASE:CONSTRAINTS] Node-specific limitations documented"
+  - "[PHASE:DEPENDENCIES] Required and optional dependencies identified"
+  - "[PHASE:PLATFORM] AI tool specific considerations added"

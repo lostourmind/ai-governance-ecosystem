@@ -1,0 +1,16 @@
+# === NODE-SPECIFIC KNOWLEDGE SYSTEM ===
+node_knowledge_system:
+  enforcement: enabled
+  structure: flat_path_naming
+  detection: automatic_scope_analysis
+  injection: dynamic_supplement_loading
+
+  node_validation:
+    required_files: [knowledge_base.yaml, supplement_prompt.md, constraints.yaml]
+    schema_enforcement: enabled
+    quality_gates: enforced
+
+  automation_tools:
+    - node_detector: scope_analysis_and_node_identification
+    - knowledge_injector: supplement_integration_and_handoff_assembly
+    - feedback_processor: knowledge_validation_and_updates
