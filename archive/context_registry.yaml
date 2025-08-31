@@ -1,9 +1,0 @@
-version: v1.0.0  
-last_updated: 2025-08-30T19:35:00-04:00  
-session_anchors:
-  - session_id: [INSERT SESSION ID]
-  - task_scope: [INSERT TASK SCOPE]
-  - lifecycle_phase: INIT
-  - rollback_anchor: validation_log.md
-  - source_tool: Copilot
-  - target_tool: Claude

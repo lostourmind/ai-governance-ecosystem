@@ -1,8 +1,8 @@
-# Node Supplement Prompt Template
+# React Next.js Node Supplement
 
 ```yaml
 node_context:
-  path: "[PROJECT.CATEGORY.SUBCATEGORY.SPECIFIC]"
+  path: "project.coding.web_development.react.nextjs"
   inject_priority: high
   merge_strategy: append_to_universal_wrapper
 ```
@@ -10,45 +10,45 @@ node_context:
 ## Node-Specific Context Injection
 
 ### Mandatory Constraints
-- [CONSTRAINT_1]: [DETAILED_EXPLANATION_AND_ENFORCEMENT]
-- [CONSTRAINT_2]: [DETAILED_EXPLANATION_AND_ENFORCEMENT]
+- Secrets and tokens must remain server-side; never import env accessors into client components.
+- Define per-route caching policy (SSR/SSG/ISR) and revalidation triggers.
 
 ### Domain-Specific Knowledge
 **Critical Success Factors:**
-- [SUCCESS_FACTOR_1]: [IMPLEMENTATION_GUIDANCE]
-- [SUCCESS_FACTOR_2]: [IMPLEMENTATION_GUIDANCE]
+- Clear server vs client component boundaries.
+- Measured caching and routing strategy matched to traffic.
 
 **Known Pitfalls:**
-- [PITFALL_1]: [AVOIDANCE_STRATEGY]
-- [PITFALL_2]: [AVOIDANCE_STRATEGY]
+- Accidental client hydration of heavy components.
+- Middleware doing CPU-bound work.
 
 ### Validation Requirements
 ```yaml
 node_validation:
   required_checks:
-    - [VALIDATION_CHECK_1]
-    - [VALIDATION_CHECK_2]
+    - no_secrets_in_client_bundle
+    - caching_policies_defined
   quality_gates:
-    - [QUALITY_GATE_1]
-    - [QUALITY_GATE_2]
+    - typecheck_lint_security_green
+    - route_tests_pass
   success_criteria:
-    - [SUCCESS_CRITERION_1]
-    - [SUCCESS_CRITERION_2]
+    - performance_budgets_met
+    - error_boundaries_present
 ```
 
 ### Integration Guidance
 **Compatible Approaches:**
-- [APPROACH_1]: [INTEGRATION_METHOD]
-- [APPROACH_2]: [INTEGRATION_METHOD]
+- Edge runtime for simple public routes.
+- Server Actions for secure data mutations.
 
 **Incompatible Patterns:**
-- [PATTERN_1]: [REASON_AND_ALTERNATIVE]
-- [PATTERN_2]: [REASON_AND_ALTERNATIVE]
+- Client-side secret access.
+- Blocking work in middleware.
 
 ### Mutation Log Enhancement
 ```yaml
 node_mutation_log:
-  - [PHASE:NODE_CONTEXT] [NODE_PATH] specific knowledge injected
+  - [PHASE:NODE_CONTEXT] project.coding.web_development.react.nextjs specific knowledge injected
   - [PHASE:CONSTRAINTS] Domain constraints applied
   - [PHASE:VALIDATION] Node validation criteria established
 ```

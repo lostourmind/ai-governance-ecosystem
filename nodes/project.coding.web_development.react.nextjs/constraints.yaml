@@ -1,41 +1,38 @@
-# Node-Specific Constraints Template
 constraints:
   hard_limits:
-    - constraint: "[ABSOLUTE_LIMITATION]"
-      reason: "[TECHNICAL_OR_BUSINESS_JUSTIFICATION]"
+    - constraint: "No secret access in client components"
+      reason: "Prevent credential leakage"
+      enforcement: mandatory
+    - constraint: "Define caching per route"
+      reason: "Correctness and performance"
       enforcement: mandatory
 
   soft_limits:
-    - constraint: "[RECOMMENDED_BOUNDARY]"
-      reason: "[BEST_PRACTICE_JUSTIFICATION]"
+    - constraint: "Prefer server components; promote to client only when interactive UI required"
+      reason: "Reduce bundle size"
       enforcement: advisory
 
   compatibility_requirements:
-    - requirement: "[COMPATIBILITY_NEED]"
-      applies_to: "[SPECIFIC_CONTEXT]"
-      validation_method: "[HOW_TO_VERIFY]"
+    - requirement: "Security headers configured"
+      applies_to: "all deployments"
+      validation_method: "CI scan and runtime check"
 
 dependencies:
   required:
-    - name: "[DEPENDENCY_NAME]"
-      version: "[VERSION_REQUIREMENT]"
-      source: "[WHERE_TO_OBTAIN]"
-
+    - name: "Next.js"
+      version: ">=13"
+      source: "npm registry"
   optional:
-    - name: "[OPTIONAL_DEPENDENCY]"
-      benefit: "[WHAT_IT_ENABLES]"
-      alternative: "[FALLBACK_OPTION]"
+    - name: "CDN"
+      benefit: "Global caching and delivery"
+      alternative: "Static hosting with cache rules"
 
 platform_specifics:
   ai_tool_considerations:
-    claude: []
-    chatgpt: []
-    copilot: []
-    gemini: []
-
-  external_tool_integrations:
-    nero_ai: []
-    specialized_tools: []
+    chatgpt:
+      - "Ask for rendering mode and caching policy before suggesting code"
+    claude:
+      - "Return minimal examples with SSR/ISR notes"
 
 mutation_log:
   - "[PHASE:CONSTRAINTS] Node-specific limitations documented"

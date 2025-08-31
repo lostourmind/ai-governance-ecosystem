@@ -1,9 +1,0 @@
-Runout interrupt
-  → Capture state
-  → (Hot?) retract 2mm
-  → Safe Z hop
-  → Compute park (bounds or fallback)
-  → Clamp into delta circle
-  → Move to park
-  → Start FUI
-  → Wait for user → RESUME (stops FUI)
