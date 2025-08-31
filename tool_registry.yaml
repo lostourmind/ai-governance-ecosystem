@@ -4,11 +4,11 @@ tool_registry:
   claude:
     status: viable
     usage: macro generation, lifecycle tagging
-    notes: free version sufficient
+    notes: free version sufficient, stable logic
   copilot:
     status: active
     usage: config validation, rollback logic
-    notes: clause-disciplined
+    notes: clause-disciplined, memory-enabled
   chatgpt:
     status: probation
     usage: fallback only

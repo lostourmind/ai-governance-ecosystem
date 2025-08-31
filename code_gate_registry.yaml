@@ -1,0 +1,20 @@
+version: v1.0.0  
+last_updated: 2025-08-30T19:35:00-04:00  
+gate_controls:
+  code_quality:
+    status: enforced
+    checks:
+      - syntax
+      - performance
+      - security
+  scope_drift:
+    status: monitored
+    detection:
+      - lifecycle mismatch
+      - undeclared execution
+  progress_validation:
+    status: required
+    checkpoints:
+      - declared objective
+      - rollback anchor
+      - mutation_log entry

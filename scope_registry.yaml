@@ -6,6 +6,9 @@ project_scopes:
   - Code_Review
   - Agent_Overlay
   - Lifecycle_Audit
+  - AI_Project_Management
+  - Restart_Safe_Workflows
+
 breakdown_layers:
   - Scope_Type
   - Platform

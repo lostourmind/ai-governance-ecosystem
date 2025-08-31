@@ -47,3 +47,51 @@ mutation_log_reference:
   - [PHASE:VALIDATED] Registry updated for multi-agent orchestration
   - [PHASE:SETPOINT] Raw file enforcement locked
   - [PHASE:QUARANTINE] Historical ambiguity flushed
+
+section_a:
+  execution_safeguard:
+    registry_enforcement:
+      required: true
+      source: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/governance_registry.yaml
+      halt_if_unavailable: true
+      validate_before_response: true
+      validate_before_scaffold: true
+
+    lifecycle_enforcement:
+      required_tags:
+        - PHASE:INIT
+        - PHASE:VALIDATED
+        - PHASE:ROLLBACK
+        - PHASE:SETPOINT
+        - PHASE:QUARANTINE
+      halt_on_missing_tag: true
+      enforce_phase_transitions: true
+
+    inheritance_model:
+      wrapper: universal_wrapper.md
+      platform_templates:
+        - inject_template_claude.md
+        - inject_template_copilot.md
+        - inject_template_chatgpt.md
+        - inject_template_gemini.md
+        - inject_template_nero.md
+      task_overlays:
+        enabled: true
+        override_policy: constraints_only
+        source_required: true
+
+    drift_detection:
+      enabled: true
+      triggers:
+        - undeclared inheritance
+        - node-level scaffolding
+        - fallback logic insertion
+        - registry reference omission
+      halt_on_trigger: true
+      mutation_log_required: true
+
+    audit_integrity:
+      mutation_log_reference:
+        - [PHASE:VALIDATED] Execution safeguard inserted
+        - [PHASE:SETPOINT] Registry enforcement locked
+        - [PHASE:QUARANTINE] Drift triggers flushed
