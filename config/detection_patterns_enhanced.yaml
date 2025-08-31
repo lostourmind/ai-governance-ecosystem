@@ -1,0 +1,27 @@
+# Enhanced detection patterns configuration
+node_prioritization:
+  most_specific_wins: true
+
+deduplication_rules:
+  enabled: true
+  strategy: exact_then_depth
+
+priority_weighting:
+  depth_weight: 1.0
+  keyword_match_weight: 0.5
+
+fallback_patterns:
+  - key: generic.react
+    applies_to: project.coding.web_development.react.nextjs
+    keywords: [react, nextjs, components]
+
+patterns:
+  project.coding.web_development.react.nextjs:
+    - nextjs
+    - react
+    - app router
+    - pages router
+  project.coding.SQL.DOMO:
+    - domo
+    - beast mode
+    - sql

@@ -1,69 +1,91 @@
 #!/usr/bin/env python3
 """
-Node Detection and Scope Analysis Tool
-Analyzes user input to identify applicable knowledge nodes
+Node Detector with deduplication, logging, and resilient config loading.
+Drop-in replacement or reference implementation.
 """
 
-import yaml
-import re
-from pathlib import Path
+from typing import List
+from enhanced_logger import governance_logger
+from repository_access_manager import RepositoryAccessManager
 
 class NodeDetector:
-    def __init__(self, framework_path="nodes/_framework"):
-        self.framework_path = Path(framework_path)
+    def __init__(self, framework_path=None):
+        # Use repository access manager instead of direct file access
+        self.access_manager = RepositoryAccessManager()
         self.detection_patterns = self._load_detection_patterns()
-
+    
+    def _get_basic_detection_patterns(self):
+        # Minimal defaults if registry not available
+        return {
+            "node_prioritization": {"most_specific_wins": True},
+            "patterns": {
+                "project.coding.web_development.react.nextjs": ["nextjs", "react", "app router", "pages router"],
+                "project.coding.SQL.DOMO": ["domo", "beast mode", "sql"],
+            }
+        }
+    
     def _load_detection_patterns(self):
-        patterns_file = self.framework_path / "detection_patterns.yaml"
-        with open(patterns_file, 'r', encoding='utf-8') as f:
-            return yaml.safe_load(f)
-
-    def detect_nodes(self, user_input):
-        detected_nodes = []
-        rules = self.detection_patterns.get('detection_rules', {})
-        keywords = rules.get('keywords', {})
-        # Keyword-based detection
-        for _, config in keywords.items():
-            for pattern in config.get('patterns', []):
-                if re.search(pattern, user_input, re.IGNORECASE):
-                    detected_nodes.extend(config.get('nodes', []))
-
-        # TODO: Context-based extraction using named groups if needed
-
-        # Prioritize most specific nodes
-        node_prior = rules.get('node_prioritization', {})
-        if node_prior.get('most_specific_wins', True):
-            detected_nodes = self._prioritize_specific_nodes(detected_nodes)
-
-        return self._validate_nodes(detected_nodes)
-
-    def _prioritize_specific_nodes(self, nodes):
+        """Load detection patterns with fallback strategies"""
+        try:
+            # Try to get from governance registry first
+            registry = self.access_manager.get_governance_registry()
+            if isinstance(registry, dict) and 'detection_patterns' in registry:
+                governance_logger.log_repository_access("detection_patterns_from_registry", True)
+                return registry['detection_patterns']
+        except Exception as e:
+            governance_logger.log_repository_access("detection_patterns_from_registry", False, e)
+        
+        # Fallback to basic patterns
+        governance_logger.log_repository_access("detection_patterns_basic_defaults", True, fallback_used=True)
+        return self._get_basic_detection_patterns()
+    
+    def _validate_nodes(self, nodes: List[str]) -> List[str]:
+        # Basic validation: non-empty strings and known namespace shape
+        valid = [n for n in nodes if isinstance(n, str) and n.count('.') >= 2]
+        return valid
+    
+    def _deduplicate_detected_nodes(self, nodes: List[str]) -> List[str]:
+        """Remove duplicate node detections and prioritize most specific"""
         if not nodes:
             return nodes
-        max_depth = max(len(n.split('.')) for n in nodes)
-        return [n for n in nodes if len(n.split('.')) == max_depth]
+        
+        # Remove exact duplicates while preserving order
+        unique_nodes = list(dict.fromkeys(nodes))
+        
+        # Group by specificity (path depth)
+        specificity_groups = {}
+        for node in unique_nodes:
+            depth = len(node.split('.'))
+            specificity_groups.setdefault(depth, []).append(node)
+        
+        # Return most specific nodes, or all if same specificity
+        most_specific = (self.detection_patterns.get('node_prioritization', {}) or {}).get('most_specific_wins', True)
+        if most_specific:
+            max_depth = max(specificity_groups.keys())
+            return specificity_groups[max_depth]
+        
+        return unique_nodes
 
-    def _validate_nodes(self, nodes):
-        validated = []
-        for node in nodes:
-            node_path = Path(f"nodes/{node}")
-            if (node_path.exists() and
-                (node_path / "knowledge_base.yaml").exists() and
-                (node_path / "supplement_prompt.md").exists() and
-                (node_path / "constraints.yaml").exists()):
-                validated.append(node)
-        return validated
-
-if __name__ == "__main__":
-    detector = NodeDetector()
-    samples = [
-        "I need help with my Klipper CoreXY printer configuration",
-        "Setting up SQL queries for DOMO analytics platform",
-        "Building a React NextJS web application"
-    ]
-    for q in samples:
-        try:
-            nodes = detector.detect_nodes(q)
-            print(f"Query: {q}\nDetected nodes: {nodes}\n")
-        except FileNotFoundError:
-            print("Framework files missing. Ensure nodes/_framework/detection_patterns.yaml exists.")
+    def detect_nodes(self, user_input: str) -> List[str]:
+        """Analyze user input and return applicable node paths"""
+        detected_nodes = []
+        
+        # --- existing detection logic would go here ---
+        # Simple heuristic matcher using patterns
+        text = (user_input or "").lower()
+        patterns = (self.detection_patterns or {}).get("patterns", {})
+        for node, keywords in patterns.items():
+            for kw in keywords:
+                if kw.lower() in text:
+                    detected_nodes.append(node)
+                    break
+        
+        # Apply deduplication
+        original_count = len(detected_nodes)
+        detected_nodes = self._deduplicate_detected_nodes(detected_nodes)
+        deduplication_applied = len(detected_nodes) != original_count
+        
+        # Log results
+        governance_logger.log_node_detection(user_input, detected_nodes, deduplication_applied)
+        
+        return self._validate_nodes(detected_nodes)

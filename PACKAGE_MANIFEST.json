@@ -1,0 +1,18 @@
+{
+  "generated_at": "2025-08-31T22:45:19.995794",
+  "package": "ai-governance-ecosystem-enhancements",
+  "items": [
+    "README_OPS_SECTION.md",
+    "tools/repository_access_manager.py",
+    "tools/enhanced_logger.py",
+    "tools/node_detector.py",
+    "tools/knowledge_injector.py",
+    "documentation/OPERATIONAL_DEPLOYMENT.md",
+    "documentation/TROUBLESHOOTING.md",
+    "documentation/TOKEN_MANAGEMENT.md",
+    "documentation/REPOSITORY_ACCESS.md",
+    "documentation/ENHANCEMENTS_NODE_SYSTEM.md",
+    "config/detection_patterns_enhanced.yaml",
+    "governance/registry_overlays/operational_resilience.yaml"
+  ]
+}

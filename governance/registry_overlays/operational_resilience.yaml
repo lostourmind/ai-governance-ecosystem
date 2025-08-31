@@ -1,0 +1,46 @@
+# Overlay: OPERATIONAL RESILIENCE CONFIGURATION
+operational_resilience:
+  enforcement: enabled
+
+  repository_access:
+    primary_strategy: raw_github_url_fetch
+    fallback_strategies: [cached_data, minimal_governance_structure]
+    cache_timeout_hours: 1
+    retry_attempts: 3
+
+  token_budget_management:
+    tracking_enabled: true
+    warning_threshold: 500
+    critical_threshold: 1000
+    optimization_suggestions: enabled
+
+  logging_configuration:
+    level: INFO
+    console_warnings: true
+    file_logging: true
+    audit_trail: comprehensive
+
+  error_handling:
+    graceful_degradation: enabled
+    fallback_to_cached: true
+    minimal_governance_fallback: true
+    user_notification: clear_error_messages
+
+# Node detection enhancements
+node_detection_advanced:
+  deduplication: enabled
+  priority_weighting: most_specific_wins
+  multi_node_layering: supported
+  detection_logging: comprehensive
+
+# Cross platform access notes
+cross_platform_access:
+  chatgpt_limitations: [api_access_restricted, html_scraping_limited]
+  claude_limitations: [requires_explicit_urls, no_directory_browsing]
+  copilot_limitations: [tier_dependent_access, drift_issues_documented]
+
+  mitigation_strategies:
+    - repository_access_manager_for_resilient_fetching
+    - cached_governance_for_offline_operation
+    - explicit_url_provision_for_claude
+    - fallback_governance_structure_for_emergencies
