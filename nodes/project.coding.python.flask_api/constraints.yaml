@@ -1,0 +1,52 @@
+constraints:
+  hard_limits:
+    - constraint: "No hardcoded secrets or credentials in source code"
+      reason: "Security vulnerability and deployment inflexibility"
+      enforcement: mandatory
+    - constraint: "All API endpoints must have input validation"
+      reason: "Prevents injection attacks and data corruption"
+      enforcement: mandatory
+    - constraint: "Database operations must use ORM parameterized queries"
+      reason: "Prevents SQL injection vulnerabilities"
+      enforcement: mandatory
+  soft_limits:
+    - constraint: "Use Flask blueprints for route organization"
+      reason: "Improves code maintainability and scalability"
+      enforcement: advisory
+    - constraint: "Implement comprehensive logging for debugging"
+      reason: "Facilitates troubleshooting and monitoring"
+      enforcement: advisory
+
+dependencies:
+  required:
+    - name: "Flask"
+      version: ">=2.0.0"
+      source: "pip install Flask"
+    - name: "SQLAlchemy"
+      version: ">=1.4.0"
+      source: "pip install SQLAlchemy"
+    - name: "python-dotenv"
+      version: ">=0.19.0"
+      source: "pip install python-dotenv"
+  optional:
+    - name: "Flask-CORS"
+      benefit: "Enables cross-origin request handling"
+      alternative: "Manual CORS header management"
+    - name: "marshmallow"
+      benefit: "Structured input validation and serialization"
+      alternative: "Manual input validation"
+    - name: "Flask-Limiter"
+      benefit: "Rate limiting middleware"
+      alternative: "Reverse-proxy rate limiting"
+    - name: "Flask-JWT-Extended"
+      benefit: "JWT authentication utilities"
+      alternative: "Custom JWT handling"
+    - name: "Alembic"
+      benefit: "Database migrations for SQLAlchemy"
+      alternative: "Manual migration scripts"
+
+platform_specifics:
+  ai_tool_considerations:
+    claude: ["can_generate_code_but_cannot_execute", "provide_configuration_examples"]
+    chatgpt: ["can_generate_and_validate_code_structure", "good_for_debugging_patterns"]
+    copilot: ["helpful_for_boilerplate_generation", "limited_complex_architecture_guidance"]

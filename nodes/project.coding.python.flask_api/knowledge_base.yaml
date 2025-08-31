@@ -1,0 +1,72 @@
+node_info:
+  path: "project.coding.python.flask_api"
+  description: "Python Flask web API development with authentication and database integration"
+  last_updated: "2025-08-31T18:02:32-05:00"
+  maintained_by: "ai_governance_ecosystem"
+
+platform_constraints:
+  dos:
+    - "Use environment variables for all configuration (DATABASE_URL, SECRET_KEY, etc.)"
+    - "Implement proper CORS handling with flask-cors"
+    - "Use SQLAlchemy ORM for database operations"
+    - "Validate input with marshmallow or similar schema validation"
+    - "Implement structured logging with Python logging module"
+    - "Use blueprint architecture for route organization"
+  donts:
+    - "Never hardcode secrets, API keys, or database credentials"
+    - "Don't leave debug=True in production configurations"
+    - "Avoid direct SQL string concatenation (injection risk)"
+    - "Don't expose detailed error messages to client responses"
+    - "Never skip input validation on API endpoints"
+    - "Don't implement authentication without proper session management"
+  critical_requirements:
+    - "Environment-based configuration management"
+    - "Input validation on all API endpoints"
+    - "Proper authentication and authorization middleware"
+    - "Database connection pooling and management"
+    - "CORS configuration appropriate for deployment environment"
+
+common_failure_patterns:
+  - pattern: "SQL injection via unvalidated input"
+    cause: "Direct string concatenation in database queries"
+    solution: "Use SQLAlchemy ORM with parameterized queries"
+    prevention: "Schema validation with marshmallow or pydantic"
+  - pattern: "Authentication bypass"
+    cause: "Missing or improperly implemented auth middleware"
+    solution: "Use flask-login or JWT with proper token validation"
+    prevention: "Comprehensive endpoint protection with decorators"
+  - pattern: "Information leakage in error responses"
+    cause: "Exposing stack traces and internal details to clients"
+    solution: "Structured error handling with sanitized client responses"
+    prevention: "Separate logging for debugging and client error responses"
+
+optimization_guidelines:
+  performance:
+    - "Implement database connection pooling"
+    - "Use caching for frequently accessed data (Redis/Memcached)"
+    - "Optimize database queries with proper indexing"
+    - "Implement pagination for large data sets"
+  security:
+    - "Use HTTPS in all production environments"
+    - "Implement rate limiting with flask-limiter"
+    - "Validate and sanitize all input data"
+    - "Use secure session management practices"
+  maintainability:
+    - "Organize code with Flask blueprints"
+    - "Use consistent error response formats"
+    - "Implement comprehensive logging"
+    - "Document API endpoints with proper specifications"
+
+validation_criteria:
+  success_metrics:
+    - "Environment variables used for configuration"
+    - "Authentication middleware properly implemented"
+    - "Input validation present on all endpoints"
+    - "Error handling without information leakage"
+    - "Database connections properly managed"
+  quality_gates:
+    - "No hardcoded secrets in source code"
+    - "All endpoints protected by authentication where required"
+    - "Input validation schemas defined for all request types"
+    - "Structured error responses implemented"
+    - "CORS properly configured for target environment"
