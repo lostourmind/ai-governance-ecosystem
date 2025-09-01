@@ -1,0 +1,16 @@
+# Config: rule adjustments based on empirical testing
+rule_adjustments_based_on_testing:
+  implementation_tasks:
+    primary: ChatGPT_Plus
+    rationale: empirically_demonstrated_superior_technical_delivery
+  repository_operations:
+    primary: ChatGPT_Plus
+    secondary: Claude_Sonnet_4_Pro
+    rationale: ChatGPT_showed_better_comprehensive_repository_analysis
+  architectural_consultation:
+    primary: Claude_Sonnet_4_Pro
+    secondary: Copilot
+    rationale: design_guidance_role_appropriate
+defaults:
+  primary: ChatGPT_Plus
+  fallbacks: [Claude_Sonnet_4_Pro, Copilot]

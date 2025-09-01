@@ -1,0 +1,21 @@
+version: v0.1.0
+last_updated: [INSERT TIMESTAMP]
+tool_registry:
+  claude:
+    status: viable
+    usage: macro generation, lifecycle tagging
+    notes: free version sufficient, stable logic
+  copilot:
+    status: active
+    usage: config validation, rollback logic
+    notes: clause-disciplined, memory-enabled
+  chatgpt:
+    status: probation
+    usage: fallback only
+    notes: logic drift, UI instability
+  gemini:
+    status: benched
+    usage: pending readiness
+  nero:
+    status: paid
+    usage: video upscaling, AI enhancement

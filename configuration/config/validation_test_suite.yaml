@@ -1,0 +1,16 @@
+# Validation test suite seed
+tests:
+  - id: impl_files_01
+    task_type: implementation
+    prompt: "Generate a multi-file scaffolding with unit tests for a Flask service"
+    expected_deliverables: ["app.py","tests/","Dockerfile"]
+    success_criteria:
+      completeness: ">=0.8"
+      structure: "follows template"
+  - id: repo_ops_01
+    task_type: repo_ops
+    prompt: "Summarize repository architecture and identify broken links"
+    expected_deliverables: ["summary.md","issues.md"]
+    success_criteria:
+      accuracy: ">=0.8"
+      coverage: ">=0.7"

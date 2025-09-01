@@ -1,0 +1,13 @@
+version: v0.1.0
+last_updated: [INSERT TIMESTAMP]
+coding_domains:
+  - Klipper
+  - Python
+  - SQL
+  - Java
+  - G-code
+syntax_constraints:
+  klipper:
+    restart_safe: true
+    macro_structure: enforced
+    rollback_logic: required

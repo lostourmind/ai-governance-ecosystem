@@ -1,0 +1,70 @@
+# === EMPIRICALLY VALIDATED PLATFORM SELECTION RULES ===
+platform_selection_system:
+  version: "1.0.0"
+  last_updated: "2025-09-01T13:54:27"
+  validation_basis: "empirical_testing_copilot_vs_chatgpt_baseline"
+  
+  task_classification_schema:
+    complexity: [simple, moderate, complex, expert_level]
+    domain: [general, web_dev, data_analysis, 3d_printing, documentation, governance, implementation, image_processing, video_processing]
+    output_type: [code, analysis, files, guidance, templates, repo_ops, architecture]
+    interaction_pattern: [single_query, iterative, collaborative, handoff_chain]
+    runtime_requirements: [none, light, heavy, specialized]
+    github_integration_needed: [none, basic, comprehensive]
+    
+  empirically_validated_capabilities:
+    ChatGPT_Plus:
+      primary_strengths: [implementation_delivery, file_generation, repository_analysis, batch_operations]
+      optimal_tasks:
+        - complexity: [moderate, complex]
+        - output_type: [files, templates, code, repo_ops]
+        - interaction_pattern: [single_query, iterative]
+        - runtime_requirements: [none, light]
+      confidence_rating: high
+      fallback_scenarios: [heavy_runtime, governance_design, architectural_consultation]
+      
+    Claude_Sonnet_4_Pro:
+      primary_strengths: [governance_design, complex_analysis, architectural_consultation, handoff_orchestration]
+      optimal_tasks:
+        - complexity: [complex, expert_level]
+        - output_type: [analysis, guidance, architecture]
+        - interaction_pattern: [iterative, handoff_chain]
+        - domain: [governance, complex_analysis]
+      confidence_rating: high
+      fallback_scenarios: [file_generation_heavy, implementation_delivery]
+      
+    Copilot:
+      primary_strengths: [ide_integration, basic_scaffolding]
+      optimal_tasks:
+        - output_type: [code]
+        - interaction_pattern: [collaborative]
+        - context: [ide_environment]
+        - github_integration_needed: [basic]
+      confidence_rating: moderate
+      limitations_documented: [limited_repository_analysis, conceptual_implementation_focus]
+      fallback_scenarios: [comprehensive_analysis, complex_implementation, file_generation]
+      
+    External_Tools:
+      Nero_AI:
+        specialty: [image_processing, video_processing]
+        confidence_rating: high_for_specialization
+        mandatory_for: [quarantined_ai_image_tasks]
+        
+  selection_algorithm:
+    primary_selection_logic:
+      1. check_task_quarantine_status
+      2. match_task_characteristics_to_platform_strengths
+      3. apply_empirical_confidence_scoring
+      4. select_highest_confidence_match
+      5. establish_fallback_hierarchy
+      
+    confidence_scoring_weights:
+      capability_match: 0.4
+      empirical_validation: 0.3
+      historical_success_rate: 0.2
+      user_preference: 0.1
+      
+    fallback_logic:
+      primary_unavailable: select_highest_confidence_secondary
+      primary_underperforming: trigger_performance_validation_protocol
+      repeated_failures: update_capability_ratings_and_rules
