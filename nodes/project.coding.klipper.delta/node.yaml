@@ -1,0 +1,28 @@
+node_id: project.coding.klipper.delta
+title: Project Coding Klipper Delta
+breadcrumbs:
+  node_dir: nodes/project.coding.klipper.delta
+  node_yaml_raw: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.coding.klipper.delta/node.yaml
+  node_yaml_web: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.coding.klipper.delta/node.yaml
+  artifacts:
+  - path: nodes/project.coding.klipper.delta/README.md
+    raw_url: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.coding.klipper.delta/README.md
+    web_url: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.coding.klipper.delta/README.md
+  - path: nodes/project.coding.klipper.delta/constraints.yaml
+    raw_url: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.coding.klipper.delta/constraints.yaml
+    web_url: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.coding.klipper.delta/constraints.yaml
+  - path: nodes/project.coding.klipper.delta/knowledge_base.yaml
+    raw_url: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.coding.klipper.delta/knowledge_base.yaml
+    web_url: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.coding.klipper.delta/knowledge_base.yaml
+  - path: nodes/project.coding.klipper.delta/supplement_prompt.md
+    raw_url: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.coding.klipper.delta/supplement_prompt.md
+    web_url: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.coding.klipper.delta/supplement_prompt.md
+  registry:
+    path: governance_registry.yaml
+    raw_url: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/governance_registry.yaml
+    web_url: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/governance_registry.yaml
+    checksum_sha256: a7e44727a187cd3d65fcdac70d460cb82f3d0db1f6755a977fbba9eaa84988c6
+governance:
+  registry_path: governance_registry.yaml
+  registry_checksum_sha256: a7e44727a187cd3d65fcdac70d460cb82f3d0db1f6755a977fbba9eaa84988c6
+updated_at: '2025-09-01T19:18:44Z'

@@ -1,0 +1,8 @@
+version: '1.0'
+repo:
+  id: lostourmind/ai-governance-ecosystem
+  branch: main
+  raw_base: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/
+  web_base: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/
+rules_ref: nodes/_framework/node_assignment_rules.yaml
+node_template_ref: nodes/_framework/templates/node/

@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "intent": "node_handoff",
+  "inputs": {
+    "node_id": "string",
+    "update_fields": "object",
+    "include_raw_git_links": "boolean",
+    "extra_context": "string"
+  },
+  "decision_rules": {
+    "include_raw_git_links": "default true if repo.id and repo.branch are set in breadcrumbs.yaml"
+  },
+  "outputs": {
+    "handoff_markdown": "Markdown for the receiving tool",
+    "patches": "List of file updates to apply to the node"
+  }
+}
