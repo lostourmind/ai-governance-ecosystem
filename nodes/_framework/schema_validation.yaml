@@ -1,9 +1,16 @@
 # Minimal schema description for validation
 schemas:
-  required_files:
-    - knowledge_base.yaml
-    - supplement_prompt.md
-    - constraints.yaml
+    required_files:
+      - breadcrumbs.yaml
+      - detection_patterns.yaml
+      - schema_validation.yaml
+      - governance_registry.yaml
+    validation_requirements:
+      - flat_path_naming
+      - cross_file_consistency
+      - schema_compliance
+      - detection_integration
+      - governance_alignment     
   knowledge_base:
     required_keys:
       - node_info.path
