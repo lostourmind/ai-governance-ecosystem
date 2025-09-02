@@ -1,0 +1,30 @@
+# Standardized governance anchor formats
+schema_version: 1
+templates:
+  MANDATORY_GOVERNANCE_ANCHOR:
+    current_stage: "<1|2|3|4>"
+    governance_status: "<operational|degraded|recovery_mode>"
+    repository_connection: "<active|failed|partial>"
+    framework_compliance: "<full|limited|emergency>"
+    authority_boundaries: "<confirmed|requires_validation>"
+    next_required_action: "<proceed|repair|escalate>"
+  GOVERNANCE_ANCHOR_STAGE_1:
+    repository_access: "<confirmed|failed>"
+    governance_registry_loaded: "<success|fallback_required>"
+    registry_checksum: "<sha256>"
+    authority_establishment: "<framework_compliance_rules_loaded>"
+  GOVERNANCE_ANCHOR_STAGE_2:
+    zero_assumption_discipline: "<enforced>"
+    platform_capabilities: "<matrix_loaded>"
+    modification_restrictions: "<active>"
+    handoff_protocols: "<sequence_loaded>"
+  GOVERNANCE_ANCHOR_STAGE_3:
+    node_detection: "<functional|requires_repair>"
+    knowledge_injection: "<operational|missing_components>"
+    cross_references: "<intact|broken_links_detected>"
+    schema_compliance: "<validated|violations_found>"
+  GOVERNANCE_ANCHOR_STAGE_4:
+    handoff_generation: "<operational|requires_templates>"
+    governance_preservation: "<enforced_in_packages>"
+    platform_selection: "<empirically_validated_routing>"
+    audit_trail: "<mutation_logs_functional>"

@@ -1,0 +1,43 @@
+version: 1.0
+title: Cold Start Protocol
+last_updated: 2025-09-02
+objectives:
+  - Establish minimum governance under total loss conditions
+  - Restore repository and registry access
+  - Re-activate detection and handoff systems safely
+authority_boundaries: [read, analyze, recommend]
+preconditions:
+  - "Repository access unknown"
+  - "Governance registry status unknown"
+procedures:
+  - name: Stage 1A - Repository Access Validation
+    steps:
+      - "Attempt to load governance registry from canonical URL"
+      - "If fail, request pasted registry content"
+      - "Record anchor: repository_access, governance_registry_loaded"
+  - name: Stage 1B - Governance Anchor Establishment
+    steps:
+      - "Compute registry checksum if loaded"
+      - "Set zero_assumption_discipline: ENFORCED"
+      - "Set framework_modification: PROHIBITED"
+      - "Confirm authority_boundaries: [read, analyze, recommend]"
+  - name: Stage 2 - Framework Files Loading
+    steps:
+      - "Load mandatory files: governance_registry.yaml, universal_wrapper.md, breadcrumbs.yaml, detection_patterns.yaml"
+      - "Halt on policy violations"
+  - name: Stage 3 - Node System Activation
+    steps:
+      - "Validate routing with a known test query"
+      - "Check cross-references and schema compliance"
+  - name: Stage 4 - Operational Handoff
+    steps:
+      - "Generate minimal compliant handoff"
+      - "Record governance anchor for audit"
+anchors:
+  mandatory:
+    current_stage: "<1|2|3|4>"
+    governance_status: "<operational|degraded|recovery_mode>"
+    repository_connection: "<active|failed|partial>"
+    framework_compliance: "<full|limited|emergency>"
+    authority_boundaries: "<confirmed|requires_validation>"
+    next_required_action: "<proceed|repair|escalate>"
