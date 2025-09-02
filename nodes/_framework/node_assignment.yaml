@@ -1,0 +1,69 @@
+# Node Assignment Rules - Framework Routing Logic
+version: "1.0.0"
+last_updated: "2025-09-02T00:00:00Z"
+purpose: "Define routing patterns for flat path node assignment"
+
+# Core routing patterns for node path assignment
+routing_patterns:
+  project_coding:
+    pattern: "project.coding.*"
+    path_template: "nodes/project.coding.{domain}/"
+    examples:
+      - "project.coding.klipper.corexy -> nodes/project.coding.klipper.corexy/"
+      - "project.coding.prompt_engineering -> nodes/project.coding.prompt_engineering/"
+      - "project.coding.web_development.react -> nodes/project.coding.web_development.react/"
+  
+  project_general:
+    pattern: "project.*"
+    path_template: "nodes/project.{category}.{domain}/"
+    examples:
+      - "project.analysis.data_science -> nodes/project.analysis.data_science/"
+      - "project.management.workflow -> nodes/project.management.workflow/"
+
+# Assignment logic rules
+assignment_logic:
+  naming_convention: "flat_path_naming"
+  separator: "."
+  priority_rule: "most_specific_wins"
+  fallback_behavior: "use_base_wrapper_only"
+  case_sensitivity: false
+  
+# Path validation requirements
+path_validation:
+  enforce_flat_paths: true
+  require_dot_notation: true
+  validate_directory_exists: true
+  check_required_files: true
+  required_node_files:
+    - "knowledge_base.yaml"
+    - "supplement_prompt.md"
+    - "constraints.yaml"
+
+# Detection integration
+detection_integration:
+  keyword_matching: "case_insensitive"
+  pattern_priority: "depth_first"
+  context_analysis: "enabled"
+  multi_node_handling: "layer_supplements"
+
+# Node creation rules
+node_creation:
+  template_source: "nodes/_framework/templates/node/"
+  required_placeholders:
+    - "node_info.path"
+    - "node_info.description"
+    - "node_info.last_updated"
+  validation_required: true
+  schema_compliance: "mandatory"
+
+# Framework compliance
+framework_compliance:
+  breadcrumb_generation: "automatic"
+  cross_reference_validation: "enabled"
+  governance_integration: "required"
+  mutation_log_tracking: "mandatory"
+
+mutation_log:
+  - "[PHASE:CREATED] Node assignment rules established"
+  - "[PHASE:ROUTING] Flat path naming convention enforced"
+  - "[PHASE:VALIDATION] Path validation requirements defined"
