@@ -1,0 +1,14 @@
+constraints:
+  - "Node path fixed: nodes/project.coding.prompt_engineering/"
+  - "Flat path naming required"
+  - "Standard injection format only"
+  - "Placement points: after_registry_validation, before_task_execution"
+  - "Fallback behavior: use_base_wrapper_only"
+  - "Do not programmatically edit framework files"
+  - "No multi-node injection from this node"
+dependencies:
+  - "nodes/_framework/breadcrumbs.yaml"
+  - "nodes/_framework/detection_patterns.yaml"
+  - "nodes/_framework/schema_validation.yaml"
+  - "nodes/_framework/injection_templates.md"
+  - "governance_registry.yaml"

@@ -1,0 +1,61 @@
+node_info:
+  path: "project.coding.web_development.react.nextjs"
+  description: "Next.js application architecture, SSR/ISR, RSC boundaries, routing, and production hardening."
+  last_updated: "2025-08-31T20:03:22.070647"
+  maintained_by: "node_maintainers@governance"
+
+platform_constraints:
+  dos:
+    - "Use App Router with server components by default; promote client where needed."
+    - "Centralize env vars via typed access; never expose secrets to client."
+    - "Adopt ISR/SSG for stable pages; SSR only when required."
+  donts:
+    - "Do not fetch secrets in client components."
+    - "Avoid heavy blocking work in middleware or edge unless profiled."
+  critical_requirements:
+    - "Error boundary coverage and logging for server and client routes."
+    - "HTTP security headers and CSRF where applicable."
+
+compatibility_matrix:
+  supported_platforms: ["Next.js 13+"]
+  version_dependencies: {}
+  integration_requirements:
+    runtime: "Node or Edge runtime selection per route"
+    data: "Cache and revalidate policies defined"
+  known_conflicts:
+    - "Overuse of client components causing large bundles"
+
+common_failure_patterns:
+  - pattern: "Secret leaked to client bundle"
+    cause: "Using process.env in client component"
+    solution: "Move to server component or server action"
+    prevention: "Static analysis to forbid env in client modules"
+  - pattern: "Stale data on ISR"
+    cause: "Missing revalidate or on-demand triggers"
+    solution: "Set revalidate or call revalidation webhook"
+    prevention: "Document caching strategy per route"
+
+optimization_guidelines:
+  performance:
+    - "Code-split and lazy-load client-only widgets."
+    - "Use edge runtime for low-latency public pages."
+  security:
+    - "Harden headers; validate origins; sanitize inputs."
+  maintainability:
+    - "Co-locate server actions with routes; typed APIs."
+  scalability:
+    - "Define caching tiers; CDN in front of static assets."
+
+validation_criteria:
+  success_metrics:
+    - "TTFB and LCP within target budgets"
+  quality_gates:
+    - "No secrets in client bundle by static scan"
+  testing_requirements:
+    - "E2E auth flow test; route rendering tests"
+  acceptance_criteria:
+    - "Green CI with type, lint, and security checks"
+
+mutation_log:
+  - "[PHASE:CREATED] Node knowledge base initialized"
+  - "[PHASE:VALIDATED] Initial constraints and patterns documented"

@@ -1,0 +1,19 @@
+node_info:
+  path: "nodes/project.coding.prompt_engineering/"
+  id: "project.coding.prompt_engineering"
+  description: |
+    Prompt engineering assistance node that integrates with the governance framework.
+    Provides template generation, context injection, and platform-specific optimizations.
+platform_constraints:
+  platform_selection_system_version: "1.0.0"
+  zero_assumption_governance_revalidation: true
+  governance_registry_path: "governance_registry.yaml"
+  injection_template_path: "nodes/_framework/injection_templates.md"
+  schema_validation_path: "nodes/_framework/schema_validation.yaml"
+  detection_patterns_path: "nodes/_framework/detection_patterns.yaml"
+validation_criteria:
+  - "Required files present and schema-compliant"
+  - "Detection rules include prompt_engineering mapping to this node"
+  - "Injection template variables supported: {node_path}, {knowledge_base}, {constraints}, {supplement_prompt}"
+  - "Governance registry revalidation callable at handoff time"
+  - "Node uses flat path naming and does not modify framework files"

@@ -1,0 +1,3 @@
+repo: {id: 'unknown', default_branch: 'main', urls: {origin: '', docs: ''}}
+node_assignment_rules: config/node_assignment_rules.yaml
+node_template_dir: injection_templates

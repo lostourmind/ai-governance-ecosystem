@@ -1,0 +1,5 @@
+patterns: []
+criteria:
+  - measurable_improvement
+  - cross-platform_transferability
+  - reproducibility

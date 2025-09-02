@@ -1,0 +1,62 @@
+node_info:
+  path: "project.coding.SQL.DOMO"
+  description: "Operational knowledge for SQL usage within Domo (datasets, DataFlows, Beast Modes, connectors)."
+  last_updated: "2025-08-31T19:33:03.005110"
+  maintained_by: "node_maintainers@governance"
+
+platform_constraints:
+  dos:
+    - "Model heavy transforms in DataFlows; keep Beast Modes for lightweight calcs."
+    - "Prefer explicit columns over SELECT * in production views."
+    - "Document dataset lineage and schedule windows."
+  donts:
+    - "Do not expose PII without approved governance policies."
+    - "Do not cross-join large datasets without filters and limits."
+  critical_requirements:
+    - "Row-level access rules enforced where applicable."
+    - "Connector credentials managed via platform secrets."
+
+compatibility_matrix:
+  supported_platforms: ["Domo Platform"]
+  version_dependencies: {}
+  integration_requirements:
+    connectors: "Source-specific quotas and API limits known"
+    scheduling: "Backfill windows planned to avoid API throttles"
+  known_conflicts:
+    - "Non-deterministic order without ORDER BY in windowed calcs"
+
+common_failure_patterns:
+  - pattern: "Exploding join cardinality"
+    cause: "Missing join keys or duplicate keys"
+    solution: "Add surrogate keys or distinct staging; validate grain"
+    prevention: "Profile keys; enforce primary-key uniqueness"
+  - pattern: "Timeouts on large transformations"
+    cause: "Pushdown disabled or resource caps hit"
+    solution: "Stage with filtered subsets; add indexes when source supports; break pipelines"
+    prevention: "Benchmark queries; track SLA budgets"
+
+optimization_guidelines:
+  performance:
+    - "Push down filters and projections to sources when connectors allow."
+    - "Use incremental DataFlows for late-arriving data."
+  security:
+    - "Mask PII; tokenization where feasible."
+  maintainability:
+    - "Name datasets with stable prefixes; embed version tags."
+  scalability:
+    - "Partition by date where supported; avoid full reloads."
+
+validation_criteria:
+  success_metrics:
+    - "Data freshness within SLA"
+    - "Null and duplicate rates within thresholds"
+  quality_gates:
+    - "Schema drift checks on each run"
+  testing_requirements:
+    - "Row-count and checksum comparisons on staging vs prod"
+  acceptance_criteria:
+    - "Dashboards reflect expected aggregates within tolerance"
+
+mutation_log:
+  - "[PHASE:CREATED] Node knowledge base initialized"
+  - "[PHASE:VALIDATED] Initial constraints and patterns documented"

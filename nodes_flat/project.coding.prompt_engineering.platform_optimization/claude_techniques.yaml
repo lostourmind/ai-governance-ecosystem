@@ -1,0 +1,11 @@
+platform: claude
+strengths:
+  - complex_analysis
+  - governance_design
+  - architectural_consultation
+playbooks:
+  - name: chain_of_constraints
+    steps:
+      - compress_context
+      - externalize_schema
+      - verify_governance_alignment

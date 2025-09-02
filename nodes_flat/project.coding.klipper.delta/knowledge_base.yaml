@@ -1,0 +1,62 @@
+node_info:
+  path: "project.coding.klipper.delta"
+  description: "Klipper on Delta kinematics. Calibration, probe lifecycle, mesh hydration, audit overlays, and restart-safe persistence."
+  last_updated: "2025-08-31T20:03:22.068804"
+  maintained_by: "node_maintainers@governance"
+
+platform_constraints:
+  dos:
+    - "Use DELTA_CALIBRATE and tower trim; store results explicitly."
+    - "Center-safe homing with verified probe offsets before any Z move."
+    - "Persist critical state via SAVE_VARIABLE with mutation logs."
+    - "Validate arm length and delta_radius; treat as immutable unless re-measured."
+  donts:
+    - "Do not edit endstop trim during prints."
+    - "Do not probe with hot nozzle without temperature compensation policy."
+  critical_requirements:
+    - "Temperature-stable probe routine before mesh."
+    - "Soft-endstops enabled for first-contact checks."
+
+compatibility_matrix:
+  supported_platforms: ["Klipper >= 0.11"]
+  version_dependencies: {}
+  integration_requirements:
+    probe: "Configured offsets and repeatability checks"
+    input_shaper: "Characterization at center and perimeter radii"
+  known_conflicts:
+    - "Uncompensated carriage tilt causes off-center Z error"
+
+common_failure_patterns:
+  - pattern: "Raised or lowered center after calibration"
+    cause: "Incorrect delta_radius or rod length"
+    solution: "Re-measure rod length; run DELTA_CALIBRATE; update radius"
+    prevention: "Document physical measurements; lock values under governance"
+  - pattern: "Inconsistent first layer across radius"
+    cause: "Probe repeatability or tilt"
+    solution: "Probe health check; verify carriage parallelism; refresh mesh"
+    prevention: "Scheduled probe lifecycle validation"
+
+optimization_guidelines:
+  performance:
+    - "Use conservative accel near high Z travel; validate resonance at outer radius."
+  security:
+    - "Require confirm flags for live radius or trim edits."
+  maintainability:
+    - "Separate factory calibration from field adjustments; log deltas."
+  scalability:
+    - "Flat node path usable across multiple Delta variants."
+
+validation_criteria:
+  success_metrics:
+    - "First layer variance ≤ ±0.05 mm across 70% build radius"
+  quality_gates:
+    - "DELTA_CALIBRATE residuals within target threshold"
+  testing_requirements:
+    - "Run probe repeatability test (≥10 samples)"
+    - "Run perimeter Z verification pattern"
+  acceptance_criteria:
+    - "Stable first layer at target speeds without nozzle contact"
+
+mutation_log:
+  - "[PHASE:CREATED] Node knowledge base initialized"
+  - "[PHASE:VALIDATED] Initial constraints and patterns documented"

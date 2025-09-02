@@ -1,0 +1,12 @@
+platform: copilot
+strengths:
+  - ide_integration
+  - basic_scaffolding
+limitations:
+  - limited_repository_analysis
+  - conceptual_implementation_focus
+playbooks:
+  - name: inline_hinting
+    steps:
+      - minimize_prompt_length
+      - anchor_to_code_context

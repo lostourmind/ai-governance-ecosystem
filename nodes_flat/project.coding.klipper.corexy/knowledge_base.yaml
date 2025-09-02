@@ -1,0 +1,71 @@
+node_info:
+  path: "project.coding.klipper.corexy"
+  description: "Operational knowledge for Klipper on CoreXY printers with governance, persistence, and audit overlays."
+  last_updated: "2025-08-31T19:33:03.005110"
+  maintained_by: "node_maintainers@governance"
+
+platform_constraints:
+  dos:
+    - "Use restart-safe variables via SAVE_VARIABLE for state persistence."
+    - "Calibrate input shaper before pressure advance tuning."
+    - "Validate belt symmetry and pulley alignment before high-acceleration tests."
+    - "Gate risky macros with confirmation and soft-endstops."
+  donts:
+    - "Do not write config during a print job."
+    - "Do not exceed verified current limits for motors and drivers."
+    - "Avoid homing without Z-safe routines on unknown state."
+  critical_requirements:
+    - "Thermal protections enabled; min_extrude_temp and runaway checks active."
+    - "Mutation log entries on every persistent state change."
+
+compatibility_matrix:
+  supported_platforms: ["Klipper >= 0.11"]
+  version_dependencies: {}
+  integration_requirements:
+    bed_mesh: "Configured and validated for the build volume."
+    input_shaper: "ADXL345 or equivalent characterization present."
+  known_conflicts:
+    - "Inconsistent MCU stepping rates at extreme accelerations if timers are oversubscribed."
+
+common_failure_patterns:
+  - pattern: "Dimensional skew on X/Y square"
+    cause: "Unequal belt tension or misrouted CoreXY belts"
+    solution: "Re-tension belts to matched frequency; verify idler alignment; recalibrate squares"
+    prevention: "Record belt frequencies; recheck after frame changes"
+  - pattern: "Ringing/ghosting on vertical walls"
+    cause: "Resonances not compensated"
+    solution: "Run SHAPER_CALIBRATE; set input_shaper values; reduce square_corner_velocity if needed"
+    prevention: "Re-characterize after hardware changes"
+  - pattern: "Under/over extrusion during fast corners"
+    cause: "Uncompensated pressure dynamics"
+    solution: "Tune pressure_advance with consistent filament; validate at target speeds"
+    prevention: "Record PA per-filament; lock slicer overrides"
+
+optimization_guidelines:
+  performance:
+    - "Tune junction deviation via square_corner_velocity to balance cornering and artifacts."
+    - "Use velocity limits that respect acceleration and jerk constraints observed stable in tests."
+  security:
+    - "Lock down remote-command macros; require console-confirm flags for service operations."
+  maintainability:
+    - "Centralize persistent vars in save_variables.cfg; checksum at startup."
+    - "Keep macros idempotent; support re-entry after MCU reset."
+  scalability:
+    - "Adopt flat node paths; reuse supplement prompts across CoreXY variants."
+
+validation_criteria:
+  success_metrics:
+    - "Cube 20mm dimensional error ≤ 0.2mm on X and Y"
+    - "Ringing amplitude reduced ≥ 50% after shaper"
+  quality_gates:
+    - "No thermal faults in a 30-minute stress test"
+    - "No MCU step underruns in test gcode"
+  testing_requirements:
+    - "Run SHAPER_CALIBRATE and PA tuning with standard test artifacts"
+    - "Execute dry-run homing and mesh without nozzle contact"
+  acceptance_criteria:
+    - "Stable print at target speed/accel configured for the hardware envelope"
+
+mutation_log:
+  - "[PHASE:CREATED] Node knowledge base initialized"
+  - "[PHASE:VALIDATED] Initial constraints and patterns documented"

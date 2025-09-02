@@ -1,0 +1,5 @@
+rules:
+  - trigger: "low_outcome_confidence"
+    action: "escalate_to_strategy_review"
+  - trigger: "new_platform_constraint"
+    action: "update_platform_techniques"

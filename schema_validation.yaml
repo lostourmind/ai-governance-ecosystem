@@ -1,0 +1,11 @@
+required_files:
+  - breadcrumbs.yaml
+  - detection_patterns.yaml
+  - schema_validation.yaml
+  - governance_registry.yaml
+validation_requirements:
+  - flat_path_naming
+  - cross_file_consistency
+  - schema_compliance
+  - detection_integration
+  - governance_alignment

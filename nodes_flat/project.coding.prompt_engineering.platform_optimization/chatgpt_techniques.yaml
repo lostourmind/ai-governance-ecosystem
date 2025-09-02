@@ -1,0 +1,11 @@
+platform: chatgpt
+strengths:
+  - implementation_delivery
+  - file_generation
+  - batch_operations
+playbooks:
+  - name: template_matrix
+    steps:
+      - enumerate_task_archetypes
+      - generate_prompt_templates
+      - attach_validation_checks

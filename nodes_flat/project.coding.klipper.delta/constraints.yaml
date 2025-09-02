@@ -1,0 +1,40 @@
+constraints:
+  hard_limits:
+    - constraint: "No DELTA_CALIBRATE or trim edits during active print"
+      reason: "Prevent kinematic jumps and crashes"
+      enforcement: mandatory
+    - constraint: "Probe at controlled temperature"
+      reason: "Offset stability"
+      enforcement: mandatory
+
+  soft_limits:
+    - constraint: "Cap acceleration at perimeter until resonance characterized"
+      reason: "Reduce ringing at large radius"
+      enforcement: advisory
+
+  compatibility_requirements:
+    - requirement: "save_variables in place for geometry persistence"
+      applies_to: "all delta configs"
+      validation_method: "write-read checksum on startup"
+
+dependencies:
+  required:
+    - name: "Klipper"
+      version: ">=0.11"
+      source: "https://www.klipper3d.org"
+  optional:
+    - name: "ADXL345"
+      benefit: "Resonance characterization"
+      alternative: "Manual test artifacts"
+
+platform_specifics:
+  ai_tool_considerations:
+    chatgpt:
+      - "Recommend DELTA_CALIBRATE then mesh; require logs for geometry changes"
+    claude:
+      - "Prefer conservative defaults when geometry uncertain"
+
+mutation_log:
+  - "[PHASE:CONSTRAINTS] Node-specific limitations documented"
+  - "[PHASE:DEPENDENCIES] Required and optional dependencies identified"
+  - "[PHASE:PLATFORM] AI tool specific considerations added"

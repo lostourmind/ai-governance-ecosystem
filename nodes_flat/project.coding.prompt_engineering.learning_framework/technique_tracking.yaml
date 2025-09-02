@@ -1,0 +1,3 @@
+observations: []
+last_updated: null
+schema: { item: { technique: str, platform: str, outcome: str, evidence: str, date: str } }
