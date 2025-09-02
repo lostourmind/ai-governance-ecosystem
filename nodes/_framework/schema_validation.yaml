@@ -1,0 +1,28 @@
+# Minimal schema description for validation
+schemas:
+    required_files:
+      - breadcrumbs.yaml
+      - detection_patterns.yaml
+      - schema_validation.yaml
+      - governance_registry.yaml
+    validation_requirements:
+      - flat_path_naming
+      - cross_file_consistency
+      - schema_compliance
+      - detection_integration
+      - governance_alignment     
+  knowledge_base:
+    required_keys:
+      - node_info.path
+      - node_info.description
+      - platform_constraints
+      - validation_criteria
+  constraints:
+    required_keys:
+      - constraints
+      - dependencies
+  supplement_prompt:
+    required_sections:
+      - node_context
+      - Node-Specific Context Injection
+      - Validation Requirements
