@@ -1,0 +1,84 @@
+schema_version: 1
+node: project.documentation.operations_manual
+title: Operations Manual Knowledge Base
+summary: Methods to author, maintain, and distribute operational manuals with Microsoft platform optimization.
+objectives:
+  - Standardize procedures and reduce onboarding time.
+  - Ensure auditability and version control of SOPs.
+  - Maximize accessibility and searchability across Microsoft 365.
+scope:
+  in_scope:
+    - SOP design and review workflows
+    - Versioning and change control
+    - Distribution and training enablement
+    - Microsoft Word, PowerPoint, Excel, Teams, SharePoint, Visio integration
+  out_of_scope:
+    - Organizational policy creation
+    - Non-Microsoft DMS migrations
+
+ms_platforms:
+  word:
+    techniques:
+      - "Use built-in Heading 1–3 for navigation pane and TOC."
+      - "Create cross-references and bookmarks for intra-doc linking."
+      - "Track Changes and Comments for approvals."
+    templates:
+      - name: sop_default
+        sections: ["Purpose","Scope","Roles","Prerequisites","Procedure","Validation","Rollback","References","Revision History"]
+  powerpoint:
+    techniques:
+      - "Enforce Slide Master for branding and layout."
+      - "Use progressive disclosure for step-by-step training."
+      - "Provide speaker notes with callouts to live demo."
+  excel:
+    techniques:
+      - "Data Validation lists for status and owners."
+      - "Conditional Formatting for SLA breach visibility."
+      - "Formulas for progress metrics (e.g., COUNTIF, NETWORKDAYS)."
+  teams_sharepoint:
+    techniques:
+      - "Create Teams channel per manual with tabs to SharePoint library."
+      - "Use SharePoint versioning and approval flows."
+      - "Use OneDrive scoped permissions for external reviewers."
+    automation:
+      - "Power Automate: when file approved => publish to 'Current' library and notify subscribers."
+  visio:
+    techniques:
+      - "Use swimlanes for role clarity and decision nodes for troubleshooting."
+      - "Export SVG/PNG for embedding into SOPs."
+
+authoring_workflow:
+  stages:
+    - Draft
+    - SME Review
+    - Compliance Review
+    - Approval
+    - Publish
+    - Train
+    - Maintain
+  gates:
+    - "All procedures tested in a non-prod environment"
+    - "Rollback path documented and verified"
+    - "Accessibility checks passed"
+
+validation:
+  criteria:
+    - name: clarity_specificity
+      measure: "Ambiguous terms count == 0; all steps numbered"
+    - name: reproducibility
+      measure: "Independent SME reproduces in staging with 100% pass"
+    - name: accessibility
+      measure: "WCAG color contrast and alt text present"
+    - name: version_integrity
+      measure: "Change log complete; semantic version bump applied"
+  test_matrix:
+    datasets: ["happy_path","edge_cases","failure_injection"]
+    runs: 3
+    acceptance_thresholds:
+      reproducibility_rate: ">= 0.95"
+      accessibility_score: ">= 0.9"
+
+maintenance:
+  owner: "project-documentation"
+  version: "1.0.0"
+  last_updated: "2025-09-02"

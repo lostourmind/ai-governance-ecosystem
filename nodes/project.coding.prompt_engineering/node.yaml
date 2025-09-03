@@ -1,0 +1,19 @@
+key: project.coding.prompt_engineering
+title: Prompt Engineering
+schema: CoreXY
+version: 1.0.0
+kind: knowledge_node
+breadcrumbs:
+  - Project
+  - Coding
+  - Prompt Engineering
+requires: []
+provides:
+  - knowledge_base
+  - constraints
+  - prompt_supplement
+files:
+  - knowledge_base.yaml
+  - constraints.yaml
+  - supplement_prompt.md
+entrypoint: knowledge_base.yaml

@@ -1,0 +1,56 @@
+schema_version: 1
+node_id: project.documentation.operations_manual
+display_name: Operations Manual
+path: /nodes/project.documentation.operations_manual/
+breadcrumbs:
+  - name: project
+    url: https://github.com/your-org/your-repo/tree/main/nodes/project
+  - name: documentation
+    url: https://github.com/your-org/your-repo/tree/main/nodes/project.documentation
+  - name: operations_manual
+    url: https://github.com/your-org/your-repo/tree/main/nodes/project.documentation.operations_manual
+parents:
+  - node_id: project.documentation
+children: []
+owners:
+  - team: project-documentation
+created_utc: "2025-09-02T00:00:00Z"
+version: "1.0.0"
+
+cross_references:
+  related_nodes:
+    - node_id: project.coding.testing
+      reason: "Test harnesses for procedure validation"
+    - node_id: project.coding.review
+      reason: "Review and approval workflows"
+  governance:
+    registry_ref: "/governance/registry.yaml"
+    recovery_roadmap_ref: "/governance/framework_recovery_roadmap.md"
+  templates:
+    supplement_prompt: "./supplement_prompt.md"
+    knowledge_base: "./knowledge_base.yaml"
+    constraints: "./constraints.yaml"
+
+detection_patterns:
+  any:
+    - "(?i)operations\s*manual|SOP|standard\s*operating\s*procedure"
+    - "(?i)word|powerpoint|excel|sharepoint|teams|visio"
+    - "(?i)training\s*slides|process\s*tracking|change\s*log"
+routing_rules:
+  priority: 65
+  rationale: "Route documentation and SOP authoring queries here."
+
+url_tracking:
+  docs:
+    - title: "Knowledge Base"
+      url: "https://github.com/your-org/your-repo/blob/main/nodes/project.documentation.operations_manual/knowledge_base.yaml"
+    - title: "Supplement Prompt"
+      url: "https://github.com/your-org/your-repo/blob/main/nodes/project.documentation.operations_manual/supplement_prompt.md"
+    - title: "Constraints"
+      url: "https://github.com/your-org/your-repo/blob/main/nodes/project.documentation.operations_manual/constraints.yaml"
+
+integrations:
+  knowledge_injection: true
+  governance_checks: true
+  detection_enabled: true
+status: active

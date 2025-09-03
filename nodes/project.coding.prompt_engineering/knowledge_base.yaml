@@ -1,0 +1,107 @@
+summary:
+  scope: "Few-shot prompting, chain-of-thought, role-based personas, output optimization, platform-specific techniques"
+  objective: "Enable reliable task completion with controllable outputs and measurable quality."
+
+principles:
+  determinism:
+    guidance: "Prefer structured prompts and constrained outputs to reduce variance."
+  decomposition:
+    guidance: "Break tasks into sub-goals. Explicitly request intermediate artifacts when useful."
+  grounding:
+    guidance: "Bind model to provided context. Penalize hallucination via instructions and verification checks."
+  evaluation:
+    guidance: "Define success criteria up front. Use checklists and test cases."
+
+techniques:
+  few_shot:
+    description: "Demonstrate target format with 2–5 minimal, diverse examples."
+    when: ["format imitation", "classification", "extraction", "style transfer"]
+    patterns:
+      - name: "Schema mimicry"
+        prompt_stub: |
+          You are to produce JSON only. Follow this schema:
+          {schema}
+          Examples:
+          {examples}
+          Task: {task}
+          Output JSON only.
+      - name: "Contrastive pairs"
+        note: "Show one correct and one incorrect example with short rationale keys like `why` kept brief."
+  cot_controlled:
+    description: "Elicit structured reasoning without long free-form monologue. Prefer step lists or labeled fields."
+    patterns:
+      - name: "Plan-then-act"
+        prompt_stub: |
+          Task: {task}
+          1) Plan: bullet list of steps.
+          2) Do: final answer only.
+      - name: "Self-check"
+        prompt_stub: |
+          Draft: {draft}
+          Checklist: {criteria}
+          Revise only if a checklist item fails.
+    guardrails:
+      - "Avoid revealing hidden chain-of-thought. Return concise rationales or a verdict."
+  role_persona:
+    description: "Constrain behavior via role and domain boundaries."
+    fields:
+      role: "domain role, e.g., 'Senior SRE'"
+      scope: "allowed actions"
+      forbidden: "out-of-scope behaviors"
+  output_optimization:
+    strategies:
+      - name: "Constrained decoding via format validators"
+        detail: "Request exact MIME or JSON schema. Include `must`/`must_not` rules."
+      - name: "Iterative refinement"
+        detail: "Ask for deltas against previous output."
+      - name: "Ranking / self-consistency"
+        detail: "Sample K candidates, select with rubric."
+  platform_specific:
+    generic:
+      system_slot: "Put role, safety, and invariants in system."
+      user_slot: "Put task, data, and constraints."
+      tool_use: "Describe available tools and expected I/O."
+    openai_chat:
+      notes:
+        - "Use JSON mode when exact JSON is required."
+        - "For function calling, define narrow, typed args."
+    anthropic_claude:
+      notes:
+        - "Delimit tool calls with explicit XML or JSON tags when relevant."
+        - "Keep examples short."
+    google_gemini:
+      notes:
+        - "Prefer explicit safety bounds and cite-on-demand."
+
+rubrics:
+  generic_quality:
+    checklist:
+      - "Fulfills all user-stated requirements"
+      - "No hallucinations; cites or defers when unsure"
+      - "Output format exactly matches spec"
+      - "Edge cases addressed"
+      - "Concise language"
+  extraction_json:
+    schema:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+      required: [items]
+
+antipatterns:
+  - "Unbounded chain-of-thought in final answer"
+  - "Hidden assumptions not validated against context"
+  - "Examples that bias content rather than format"
+  - "Mixing instructions and data without delimiters"
+
+placeholders:
+  tokens:
+    - "{task}"
+    - "{schema}"
+    - "{examples}"
+    - "{criteria}"
+    - "{draft}"

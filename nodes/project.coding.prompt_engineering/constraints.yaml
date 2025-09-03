@@ -1,0 +1,30 @@
+hard_constraints:
+  - "Do not alter repository structure."
+  - "No background tasks. All outputs must be produced synchronously."
+  - "No long chain-of-thought in final user-visible outputs. Prefer structured short rationales."
+  - "Honor safety and compliance requirements."
+  - "When format is specified, output only that format."
+
+soft_constraints:
+  - "Prefer brevity over verbosity."
+  - "Minimize assumptions; state uncertainties"
+  - "Use citations when external facts are asserted."
+
+io_contracts:
+  input:
+    - name: task
+      type: string
+    - name: context
+      type: string | object
+    - name: schema
+      type: json-schema | regex | EBNF
+  output:
+    - name: artifact
+      type: constrained string | JSON | markdown
+
+security:
+  - "Never exfiltrate secrets."
+  - "Refuse malware creation or unsafe guidance."
+
+observability:
+  - "Include a brief `decision_log` section when debugging or handing off between agents."

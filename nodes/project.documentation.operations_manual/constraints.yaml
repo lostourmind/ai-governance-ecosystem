@@ -1,0 +1,40 @@
+schema_version: 1
+node: project.documentation.operations_manual
+purpose: Constraints for operations manual content and distribution.
+
+standards:
+  writing_style: "Short, imperative sentences; numbered steps"
+  units: "SI units by default; include units for all numeric values"
+  citations: "Required for external facts and references"
+  accessibility: "WCAG 2.1 AA for contrast, headings, and alt text"
+
+formats:
+  primary: ["docx","pdf"]
+  diagrams: ["vsdx","svg","png"]
+  data: ["xlsx","csv"]
+
+limits:
+  max_step_length_words: 120
+  max_total_steps: 30
+  max_images: 10
+
+guardrails:
+  forbidden:
+    - "Mixed prose with machine-readable output"
+    - "Undocumented credentials"
+    - "Screenshots without alt text"
+  fallback:
+    - "If missing data → emit TODO fields as 'UNKNOWN'"
+    - "If schema invalid → repair and re-emit"
+    - "If accessibility fails → mark 'accessibility_status: needs_fix'"
+
+validation_protocol:
+  schema_check: "Automated JSON Schema validation"
+  accessibility_check: "Contrast, headings, and alt text linters"
+  reproducibility_check: "SME executes steps in staging"
+  versioning_check: "Change log updated and semantic version bump"
+
+acceptance_criteria:
+  - "All validation checks pass"
+  - "No guardrail violations"
+  - "Deterministic outputs under fixed seeds"
