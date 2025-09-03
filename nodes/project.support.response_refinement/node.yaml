@@ -1,0 +1,40 @@
+node_id: project.support.response_refinement
+title: Project Support Response Refinement
+breadcrumbs:
+  node_dir: nodes/project.support.response_refinement
+  node_yaml_raw: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.support.response_refinement/node.yaml
+  node_yaml_web: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.support.response_refinement/node.yaml
+  artifacts:
+  - path: nodes/project.support.response_refinement/README.md
+    raw_url: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.support.response_refinement/README.md
+    web_url: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.support.response_refinement/README.md
+  - path: nodes/project.support.response_refinement/constraints.yaml
+    raw_url: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.support.response_refinement/constraints.yaml
+    web_url: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.support.response_refinement/constraints.yaml
+  - path: nodes/project.support.response_refinement/knowledge_base.yaml
+    raw_url: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.support.response_refinement/knowledge_base.yaml
+    web_url: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.support.response_refinement/knowledge_base.yaml
+  - path: nodes/project.support.response_refinement/supplement_prompt.md
+    raw_url: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.support.response_refinement/supplement_prompt.md
+    web_url: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.support.response_refinement/supplement_prompt.md
+  - path: nodes/project.support.response_refinement/templates/email.md
+    raw_url: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.support.response_refinement/templates/email.md
+    web_url: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.support.response_refinement/templates/email.md
+  - path: nodes/project.support.response_refinement/templates/teams.md
+    raw_url: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.support.response_refinement/templates/teams.md
+    web_url: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.support.response_refinement/templates/teams.md
+  - path: nodes/project.support.response_refinement/templates/ticket.yaml
+    raw_url: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.support.response_refinement/templates/ticket.yaml
+    web_url: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.support.response_refinement/templates/ticket.yaml
+  - path: nodes/project.support.response_refinement/templates/status.md
+    raw_url: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.support.response_refinement/templates/status.md
+    web_url: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.support.response_refinement/templates/status.md
+  registry:
+    path: governance_registry.yaml
+    raw_url: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/governance_registry.yaml
+    web_url: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/governance_registry.yaml
+    checksum_sha256: a7e44727a187cd3d65fcdac70d460cb82f3d0db1f6755a977fbba9eaa84988c6
+governance:
+  registry_path: governance_registry.yaml
+  registry_checksum_sha256: a7e44727a187cd3d65fcdac70d460cb82f3d0db1f6755a977fbba9eaa84988c6
+updated_at: '2025-09-02T00:00:00Z'

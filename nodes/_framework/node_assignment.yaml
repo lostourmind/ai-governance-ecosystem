@@ -19,7 +19,19 @@ routing_patterns:
     examples:
       - "project.analysis.data_science -> nodes/project.analysis.data_science/"
       - "project.management.workflow -> nodes/project.management.workflow/"
-
+      
+  project_documentation:
+    pattern: "project.documentation.*"
+    path_template: "nodes/project.documentation.{domain}/"
+    
+  project_integration:
+    pattern: "project.integration.*" 
+    path_template: "nodes/project.integration.{domain}/"
+    
+  project_support:
+    pattern: "project.support.*"
+    path_template: "nodes/project.support.{domain}/"
+    
 # Assignment logic rules
 assignment_logic:
   naming_convention: "flat_path_naming"

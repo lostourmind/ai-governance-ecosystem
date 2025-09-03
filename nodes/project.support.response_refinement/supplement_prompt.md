@@ -7,6 +7,12 @@ You receive:
 
 Follow constraints in ./constraints.yaml. Use knowledge in ./knowledge_base.yaml.
 
+template_resources:
+  email_templates: "templates/email.md"
+  teams_templates: "templates/teams.md" 
+  ticket_formats: "templates/ticket.yaml"
+  status_reports: "templates/status.md"
+
 Process
 1) Classify audience and pick template for the channel
 2) Translate technical findings to business impact using communication_refinement.business_translation

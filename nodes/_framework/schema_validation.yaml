@@ -10,7 +10,8 @@ schemas:
       - cross_file_consistency
       - schema_compliance
       - detection_integration
-      - governance_alignment     
+      - governance_alignment
+      - collaboration_pattern_recognition 
   knowledge_base:
     required_keys:
       - node_info.path

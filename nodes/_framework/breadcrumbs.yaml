@@ -1,8 +1,56 @@
-version: '1.0'
+version: '1.1'
+last_updated: '2025-09-02T00:00:00Z'
 repo:
   id: lostourmind/ai-governance-ecosystem
   branch: main
   raw_base: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/
   web_base: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/
-rules_ref: nodes/_framework/node_assignment_rules.yaml
-node_template_ref: nodes/_framework/templates/node/
+  
+framework_references:
+  rules_ref: nodes/_framework/node_assignment_rules.yaml
+  node_template_ref: nodes/_framework/templates/node/
+  detection_patterns_ref: nodes/_framework/detection_patterns.yaml
+  schema_validation_ref: nodes/_framework/schema_validation.yaml
+  governance_registry_ref: governance_registry.yaml
+  universal_wrapper_ref: universal_wrapper.md
+  
+active_nodes:
+  - id: project.coding.klipper.corexy
+    path: nodes/project.coding.klipper.corexy/
+    status: operational
+    domain: 3d_printing_klipper_expertise
+    
+  - id: project.coding.prompt_engineering  
+    path: nodes/project.coding.prompt_engineering/
+    status: operational
+    domain: ai_prompt_optimization
+    
+  - id: project.documentation.operations_manual
+    path: nodes/project.documentation.operations_manual/
+    status: operational
+    domain: microsoft_documentation_tools
+    
+  - id: project.integration.gemini_api
+    path: nodes/project.integration.gemini_api/
+    status: operational
+    domain: gemini_api_integration
+    
+  - id: project.support.response_refinement
+    path: nodes/project.support.response_refinement/
+    status: operational
+    domain: it_ot_communication_templates
+    enhanced_templates: true
+
+governance:
+  disaster_recovery_roadmap: governance/framework_recovery_roadmap.md
+  cold_start_protocol: governance/cold_start_protocol.yaml
+  emergency_governance_minimum:
+    zero_assumption_discipline: ENFORCED
+    framework_modification: PROHIBITED
+    authority_boundaries: [read, analyze, recommend]
+
+mutation_log:
+  - [2025-09-01] Framework foundation established with clean structure
+  - [2025-09-02] Multi-platform collaboration patterns documented
+  - [2025-09-02] Enhanced governance with empirical platform insights
+  - [2025-09-02] Five operational nodes deployed with template enhancements

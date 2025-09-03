@@ -25,3 +25,35 @@ patterns:
     - domo
     - beast mode
     - sql
+  project.coding.klipper.corexy:
+    - klipper
+    - corexy
+    - 3d printer
+    - input shaper
+    - firmware
+  project.coding.prompt_engineering:
+    - prompt engineering
+    - prompt design
+    - ai prompting
+    - prompt optimization
+    - context injection
+    
+  project.documentation.operations_manual:
+    - operations manual
+    - sop
+    - training guide
+    - documentation
+    - microsoft office
+    
+  project.integration.gemini_api:
+    - gemini api
+    - api integration
+    - google ai
+    - ui bypass
+    
+  project.support.response_refinement:
+    - it support
+    - ot support
+    - ticket response
+    - technical communication
+    - escalation 
