@@ -1,0 +1,12 @@
+problem: "{problem_statement}"
+investigation:
+  steps: "{steps_taken}"
+  evidence: "{evidence}"
+findings: "{findings}"
+risk_impact: "{risk_impact}"
+blockers: "{blockers}"
+next_step: "{next_step}"
+validation_markers:
+  - "monitoring_green_{minutes}min"
+  - "errors_per_minute<=0"
+  - "stakeholder_ack_received"

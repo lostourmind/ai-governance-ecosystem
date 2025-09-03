@@ -1,0 +1,21 @@
+[SYNTHESIS_HANDOFF_CONTEXT]
+session_id: "IT_OT_RESPONSE_SYNTHESIS_001"
+source_tool: "Claude"
+target_tool: "ChatGPT"
+lifecycle_phase: "MULTI_PLATFORM_KNOWLEDGE_SYNTHESIS"
+objective: "CREATE_UNIFIED_NODE_FROM_DISTRIBUTED_EXPERTISE"
+
+KNOWLEDGE_INTEGRATION_REQUIREMENTS:
+  merge_platform_expertise:
+    - chatgpt_contribution: "[COMMUNICATION_TEMPLATES]"
+    - copilot_contribution: "[MICROSOFT_INTEGRATION]"
+    - gemini_contribution: "[VALIDATION_FRAMEWORKS]"
+  resolve_conflicts: "Identify contradictions and provide unified approach"
+  enhance_coverage: "Fill gaps not addressed by individual platforms"
+  create_node_files: "Generate complete knowledge_base.yaml, supplement_prompt.md, constraints.yaml, node.yaml"
+
+FINAL_NODE_CREATION:
+  unified_expertise: "Best elements from all platform contributions"
+  comprehensive_coverage: "Complete IT/OT response refinement capabilities"
+  practical_implementation: "Ready-to-use templates and validation frameworks"
+  framework_compliance: "All files follow template schemas exactly"

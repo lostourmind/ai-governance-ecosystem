@@ -1,0 +1,39 @@
+schema_version: "1.0"
+anchor:
+  governance_received: "claude_handoff"
+  framework_constraints: "preservation_rules_acknowledged"
+  modification_authority: "create_only"
+restrictions:
+  existing_files: "PROHIBITED_FROM_MODIFICATION"
+  directory_structure: "PROHIBITED_FROM_CHANGES"
+  framework_files: "PROHIBITED_FROM_TOUCHING"
+  personally_identifiable_info: "MUST_NOT_DISCLOSE"
+  security_findings: "SUMMARIZE_ONLY_UNTIL_APPROVED_FOR_DETAIL"
+
+content_guards:
+  tone: ["professional","neutral","concise"]
+  avoid: ["speculation","blame","jargon_without_definition","emotive_language"]
+  legal_hold_words: ["breach","negligence","guarantee","warranty"]
+
+size_limits:
+  teams_message_chars_max: 1000
+  email_paragraphs_max: 7
+  ticket_update_sections_max: 10
+
+escalation_thresholds:
+  p1_outage_minutes: 15
+  safety_impact_detected: true
+  data_exfil_suspected: true
+  change_freeze_violation: true
+
+validation_windows:
+  green_monitoring_minutes: 30
+  log_error_rate_max_per_min: 0
+
+channels:
+  allowed: ["email","teams","ticket","status_report"]
+  default: "email"
+
+redaction_rules:
+  redact_fields: ["customer_name","ip","hostname","ticket_id"]
+  format: "[[REDACTED:{field}]]"

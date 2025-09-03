@@ -1,0 +1,59 @@
+[HANDOFF_CONTEXT]
+session_id: "IT_OT_RESPONSE_NODE_CHATGPT"
+source_tool: "Claude"
+target_tool: "ChatGPT"
+lifecycle_phase: "MULTI_PLATFORM_KNOWLEDGE_GATHERING"
+collaboration_mode: "DISTRIBUTED_EXPERTISE_COLLECTION"
+
+[GOVERNANCE_ANCHOR]
+governance_received: "claude_handoff"
+framework_constraints: "preservation_rules_acknowledged"
+modification_authority: "create_only"
+collaboration_phase: "knowledge_contribution_only"
+
+FRAMEWORK_MODIFICATION_RESTRICTIONS:
+  existing_files: PROHIBITED_FROM_MODIFICATION
+  directory_structure: PROHIBITED_FROM_CHANGES
+  framework_files: PROHIBITED_FROM_TOUCHING
+  permitted_actions:
+    - contribute_domain_expertise: "IT_OT_response_refinement_knowledge"
+    - provide_platform_specific_insights: "relevant_to_technical_communication"
+    - suggest_validation_frameworks: "resolution_status_identification"
+
+NODE_DETAILS:
+  node_id: "project.support.response_refinement"
+  domain_focus: "Technical communication refinement, validation markers, escalation criteria"
+
+KNOWLEDGE_AREAS_TO_ADDRESS:
+  communication_refinement:
+    - "Technical finding translation to business language"
+    - "Professional tone templates for IT/OT contexts"
+    - "Stakeholder-appropriate detail levels"
+    - "Clear action item identification"
+  validation_framework:
+    - "Resolution confirmation criteria"
+    - "Investigation continuation indicators"
+    - "Escalation trigger identification"
+    - "Scope boundary documentation methods"
+  deliverable_formats:
+    - "Teams message optimization"
+    - "Professional email structures"
+    - "Ticket update standardization"
+    - "Status reporting templates"
+  platform_specific_optimization:
+    - "structured_communication_templates"
+    - "professional_formatting_standards"
+    - "email_and_teams_message_optimization"
+    - "business_language_translation_techniques"
+
+CONTRIBUTION_FORMAT:
+  domain_expertise: "Provide comprehensive knowledge in your area of strength"
+  practical_examples: "Include templates, examples, validation criteria"
+  integration_considerations: "How this connects to existing communication workflows"
+  platform_optimization: "Leverage your platform's specific capabilities"
+
+KNOWLEDGE_CONTRIBUTION_SUCCESS:
+  comprehensive_coverage: "Address all requested knowledge areas thoroughly"
+  practical_applicability: "Provide actionable guidance and templates"
+  professional_standards: "Ensure business communication appropriateness"
+  validation_clarity: "Clear criteria for status determination"

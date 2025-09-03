@@ -1,0 +1,119 @@
+schema_version: "1.0"
+communication_refinement:
+  business_translation:
+    mapping:
+      symptom_to_impact:
+        latency_spike: "Transaction delay affecting order processing"
+        packet_loss: "Reduced reliability of OT control signals"
+        cpu_throttle: "Capacity constraint risking SLA"
+      metric_to_kpi:
+        error_rate: "Availability"
+        rto: "Recovery Time Objective"
+        mttr: "Mean Time To Restore"
+  tone_templates:
+    executive:
+      style: "one-screen summary, outcomes first"
+      skeleton: |
+        Subject: [P{priority}] {service} — {status} — {impact_summary}
+        
+        Executive summary: {one_sentence}
+        Impact: {who_is_affected} | {business_kpi}
+        Current status: {status_word} | Owner: {owner} | ETA: {eta}
+        Actions due: {action_owner}:{action}, {due}
+        Next update: {next_update_time}
+    technical_manager:
+      style: "brief, decision-ready"
+      bullets:
+        - "What changed"
+        - "What we know"
+        - "What we do next"
+        - "Risks and blockers"
+    frontline_ops:
+      style: "precise, command-like"
+      checklist:
+        - "Runbook link"
+        - "Command set/hash"
+        - "Rollback plan"
+        - "Validation asserts"
+  action_item_identification:
+    pattern: "[OWNER] -> [ACTION] by [DUE] [SUCCESS_CRITERIA]"
+
+validation_framework:
+  resolution_confirmation:
+    criteria:
+      - "All customer-facing KPIs back within thresholds for {validation_windows.green_monitoring_minutes} minutes"
+      - "Error logs <= {validation_windows.log_error_rate_max_per_min}/min"
+      - "No active alerts for impacted components"
+      - "Stakeholder confirmation received"
+  investigation_continuation:
+    indicators:
+      - "Unknown root cause"
+      - "Intermittent recurrence in monitoring"
+      - "Unexplained resource contention"
+  escalation_triggers:
+    conditions:
+      - name: "Time-based breach"
+        rule: "P1 outage exceeds {escalation_thresholds.p1_outage_minutes} minutes"
+      - name: "Safety impact"
+        rule: "safety_impact_detected == true"
+      - name: "Data exfil suspected"
+        rule: "data_exfil_suspected == true"
+      - name: "Change freeze violation"
+        rule: "change_freeze_violation == true"
+  scope_boundary:
+    documentation:
+      include: ["systems_in_scope","systems_out_of_scope","interfaces","change_window","risk_acceptance"]
+
+deliverable_formats:
+  teams_message:
+    goals: ["fast comprehension","explicit owner","next_update_time"]
+    format: |
+      **{service}: {status_word}**
+      Impact: {impact_summary}
+      Owner: {owner} | ETA: {eta}
+      Action: {next_action}
+      Next update: {next_update_time}
+      Link: {ticket_url}
+  email:
+    structure:
+      - "Situation"
+      - "Impact"
+      - "Evidence"
+      - "Action"
+      - "Validation"
+      - "Next steps"
+  ticket_update:
+    sections:
+      - key: "problem"
+        required: true
+      - key: "investigation"
+        required: true
+      - key: "findings"
+        required: true
+      - key: "risk_impact"
+        required: true
+      - key: "blockers"
+        required: false
+      - key: "next_step"
+        required: true
+      - key: "validation_markers"
+        required: true
+  status_reporting:
+    cadences: ["hourly","daily","postmortem"]
+    kpis: ["MTTA","MTTR","SLA_violations","changes_reverted"]
+
+platform_specific_optimization:
+  chatgpt:
+    tips: ["short sentences","bullet-first","avoid hedging"]
+  copilot:
+    teams_adaptive_card_schema_version: "1.5"
+    outlook_quick_steps: ["Ack+Assign","Update+Schedule","Close+Thanks"]
+    power_automate_examples:
+      - trigger: "When Teams message with tag @Incident-Bot"
+        actions: ["Create Planner task","Append to SharePoint incident log","Notify channel"]
+  gemini:
+    decision_tree_pseudocode: |
+      state := classify(impact, safety, data_exfil, duration)
+      if safety or data_exfil then escalate(P1)
+      else if duration > threshold then escalate(P2)
+      else continue_investigation()
