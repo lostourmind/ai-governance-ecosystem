@@ -1,0 +1,19 @@
+key: project.integration.gemini_api
+title: Gemini API Integration
+schema: CoreXY
+version: 1.0.0
+kind: knowledge_node
+breadcrumbs:
+  - Project
+  - Integration
+  - Gemini API
+requires: []
+provides:
+  - knowledge_base
+  - constraints
+  - prompt_supplement
+files:
+  - knowledge_base.yaml
+  - constraints.yaml
+  - supplement_prompt.md
+entrypoint: knowledge_base.yaml

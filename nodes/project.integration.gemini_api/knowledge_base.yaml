@@ -1,0 +1,100 @@
+governance:
+  governance_received: "claude_handoff"
+  framework_constraints: "preservation_rules_acknowledged"
+  modification_authority: "create_only"
+  repository_access: "https://github.com/lostourmind/ai-governance-ecosystem"
+  framework_preservation_status: "Framework preservation is confirmed. No existing files or directories were modified."
+
+summary:
+  scope: "Gemini API integration, handoff package optimization, API-centric workflows"
+  objective: "Provide actionable guidance for robust, compliant, and efficient Gemini API integrations."
+
+api_fundamentals:
+  authentication:
+    guidance: |
+      - Store API keys in environment variables (e.g., GEMINI_API_KEY). Do not hardcode.
+      - Load from secret managers when possible.
+  endpoints:
+    guidance: "Prefer stable versioned endpoints. Document models and regions per environment."
+  rate_limits_and_quotas:
+    strategies:
+      - "Token-budgeted batching to keep per-minute tokens within quota"
+      - "Leaky-bucket or token-bucket client throttle"
+      - "Backoff on 429/ResourceExhausted"
+  errors:
+    handling:
+      - "Classify: retryable vs non-retryable"
+      - "Use exponential backoff with jitter"
+      - "Surface structured error details for observability"
+  validation:
+    response_checks:
+      - "Verify content safety blocks"
+      - "Validate JSON against schema when JSON expected"
+      - "Enforce max size on outputs"
+
+handoff_package_optimization:
+  prompts:
+    techniques:
+      - "Compact system instructions; move data to user/tool turns"
+      - "Use placeholders and delimiters to avoid injection"
+      - "Stage multi-turn tasks with checkpoints"
+  context_window:
+    guidance:
+      - "Chunk large inputs with retrieval"
+      - "Summarize prior turns; pin critical facts"
+  multi_turn:
+    patterns:
+      - "Plan → Execute → Verify"
+      - "Self-check with rubric then final answer-only output"
+
+ui_limitation_workarounds:
+  note: "Use direct API features for workflows not exposed in UI."
+  capabilities:
+    - "Batch processing"
+    - "Streaming responses"
+    - "Function/tool calling"
+    - "Custom safety settings per call"
+
+platform_specific:
+  models:
+    examples:
+      - "gemini-1.5-pro"
+      - "gemini-1.5-flash"
+  safety_and_content_filtering:
+    guidance:
+      - "Configure safety settings per content category per call"
+      - "Respect platform policies; refuse disallowed content"
+  function_calling:
+    guidance:
+      - "Define narrow, typed args. Validate tool outputs."
+  streaming:
+    guidance:
+      - "Use streaming for low-latency UX and long outputs"
+
+rubrics:
+  integration_quality:
+    checklist:
+      - "Auth via env or secret manager"
+      - "Respects rate limits and backoff"
+      - "Validates responses against schema"
+      - "Logs key events without secrets"
+      - "Handles streaming and partials correctly"
+  security_review:
+    checklist:
+      - "No credentials in code or logs"
+      - "PII handling policy applied"
+      - "Dependency licenses reviewed"
+
+antipatterns:
+  - "Hardcoding API keys"
+  - "Ignoring 429 and continuing to send traffic"
+  - "Unbounded prompts without schema or limits"
+  - "Mixing untrusted input with instructions without delimiters"
+
+placeholders:
+  tokens:
+    - "{model}"
+    - "{input}"
+    - "{tools}"
+    - "{safety_settings}"
+    - "{system_instructions}"

@@ -1,0 +1,44 @@
+hard_constraints:
+  - "Do not alter repository structure."
+  - "Create-only operations for this node."
+  - "No background tasks; all outputs produced synchronously."
+  - "No secret exposure in code, logs, or prompts."
+  - "Respect Google AI safety policies and content filters."
+  - "Stay within documented rate limits; backoff on 429."
+
+soft_constraints:
+  - "Minimize cost via batching and model selection."
+  - "Prefer concise prompts and deterministic formats."
+  - "Surface uncertainties explicitly."
+  - "Add citations when asserting external facts."
+
+io_contracts:
+  input:
+    - name: api_key_env
+      type: string
+      example: "GEMINI_API_KEY"
+    - name: model
+      type: string
+      example: "gemini-1.5-pro"
+    - name: prompt
+      type: string
+    - name: tools
+      type: array
+    - name: safety_settings
+      type: object
+  output:
+    - name: response
+      type: object | json
+    - name: logs
+      type: string
+      note: "No secrets; redact tokens."
+
+security:
+  - "Use secret managers or env vars for keys."
+  - "Encrypt at rest and in transit."
+  - "PII minimization and access controls."
+
+observability:
+  - "Emit metrics: requests, tokens, latency, error rates."
+  - "Log retries and backoff events without secrets."
+  - "Include a brief decision_log for handoffs when debug mode is enabled."
