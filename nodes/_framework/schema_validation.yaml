@@ -1,29 +1,91 @@
-# Minimal schema description for validation
+# Framework schema validation with enhanced node.yaml format enforcement
+version: "1.1.0"
+last_updated: "2025-09-02T00:00:00Z"
+
+# Enhanced node.yaml schema enforcement
+node_yaml_schema:
+  required_structure:
+    - node_id: "project.{category}.{domain}"
+    - title: "Project {Category} {Domain}"
+    - breadcrumbs:
+        required_fields: [node_dir, node_yaml_raw, node_yaml_web, artifacts, registry]
+        artifacts_structure: [path, raw_url, web_url]
+        registry_structure: [path, raw_url, web_url, checksum_sha256]
+    - governance:
+        required_fields: [registry_path, registry_checksum_sha256]
+    - updated_at: "ISO_8601_timestamp"
+
+  prohibited_fields:
+    - schema_version
+    - version
+    - lifecycle_phase
+    - inputs
+    - outputs
+    - runbook_hooks
+    - constraints_anchor
+    - routing
+
+  validation_rules:
+    node_id_format: "must_match_flat_path_naming_convention"
+    breadcrumb_urls: "must_include_complete_github_raw_and_web_paths"
+    artifact_completeness: "all_node_files_must_be_listed_with_urls"
+    governance_integration: "registry_checksum_must_match_current_governance_state"
+
+# Framework file schemas
 schemas:
-    required_files:
-      - breadcrumbs.yaml
-      - detection_patterns.yaml
-      - schema_validation.yaml
-      - governance_registry.yaml
-    validation_requirements:
-      - flat_path_naming
-      - cross_file_consistency
-      - schema_compliance
-      - detection_integration
-      - governance_alignment
-      - collaboration_pattern_recognition 
+  required_files:
+    - breadcrumbs.yaml
+    - detection_patterns.yaml
+    - schema_validation.yaml
+    - governance_registry.yaml
+    
+  validation_requirements:
+    - flat_path_naming
+    - cross_file_consistency
+    - schema_compliance
+    - detection_integration
+    - governance_alignment
+    - collaboration_pattern_recognition
+    
   knowledge_base:
     required_keys:
       - node_info.path
       - node_info.description
       - platform_constraints
       - validation_criteria
+      
   constraints:
     required_keys:
       - constraints
       - dependencies
+      
   supplement_prompt:
     required_sections:
       - node_context
       - Node-Specific Context Injection
       - Validation Requirements
+
+# Format enforcement rules
+format_enforcement:
+  node_creation_validation:
+    - "node_yaml_must_follow_breadcrumb_structure_exactly"
+    - "no_custom_schema_fields_permitted"
+    - "all_artifacts_require_complete_url_mapping"
+    - "governance_checksum_validation_mandatory"
+    
+  framework_modification_restrictions:
+    - "framework_files_modification_prohibited_without_authorization"
+    - "schema_changes_require_version_increment"
+    - "cross_reference_integrity_must_be_maintained"
+
+# Validation checkpoints
+validation_checkpoints:
+  pre_commit:
+    - "validate_node_yaml_schema_compliance"
+    - "check_framework_file_modification_authorization"
+    - "verify_cross_reference_integrity"
+    
+  post_creation:
+    - "confirm_detection_pattern_coverage"
+    - "validate_breadcrumb_accuracy"
+    - "test_knowledge_injection_capability"

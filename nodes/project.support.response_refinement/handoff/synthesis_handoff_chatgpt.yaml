@@ -5,6 +5,38 @@ target_tool: "ChatGPT"
 lifecycle_phase: "MULTI_PLATFORM_KNOWLEDGE_SYNTHESIS"
 objective: "CREATE_UNIFIED_NODE_FROM_DISTRIBUTED_EXPERTISE"
 
+[GOVERNANCE_ANCHOR_SYNTHESIS]
+governance_received: "claude_handoff"
+framework_constraints: "preservation_rules_acknowledged"
+modification_authority: "create_only"
+repository_access: "https://github.com/lostourmind/ai-governance-ecosystem"
+
+FRAMEWORK_MODIFICATION_RESTRICTIONS:
+  existing_files: PROHIBITED_FROM_MODIFICATION
+  directory_structure: PROHIBITED_FROM_CHANGES
+  framework_files: PROHIBITED_FROM_TOUCHING
+  
+  permitted_actions_only:
+    - create_node_directory: "nodes/project.support.response_refinement/"
+    - create_required_files: "knowledge_base.yaml, supplement_prompt.md, constraints.yaml, node.yaml"
+    - synthesize_platform_contributions: "merge_distributed_expertise"
+
+VALIDATION_REQUIREMENTS:
+  governance_anchor: "Confirm framework preservation status in response"
+  deliverables_summary: "List exactly what was created"
+  synthesis_quality: "Document how platform contributions were integrated"
+  compliance_confirmation: "Validate schema adherence and framework integrity"
+
+MANDATORY_SCHEMA_COMPLIANCE:
+  node_yaml_format: "MUST_FOLLOW_BREADCRUMB_STRUCTURE_EXACTLY"
+  prohibited_custom_fields: "NO_SCHEMA_VERSION_VERSION_LIFECYCLE_PHASE_INPUTS_OUTPUTS"
+  required_validation: "python3 validate_node_schema.py node.yaml"
+  
+schema_enforcement_checkpoint:
+  before_creation: "Review breadcrumb structure requirements"
+  during_creation: "Follow CoreXY node.yaml as exact template"
+  after_creation: "Run validation script to confirm compliance"
+
 KNOWLEDGE_INTEGRATION_REQUIREMENTS:
   merge_platform_expertise:
     - chatgpt_contribution: "[COMMUNICATION_TEMPLATES]"

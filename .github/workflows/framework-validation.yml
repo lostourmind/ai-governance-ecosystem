@@ -1,0 +1,24 @@
+name: Framework Validation
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Validate Framework Integrity
+        run: |
+          python3 .github/scripts/framework_validator.py
+          
+      - name: Check Node Schema Compliance
+        run: |
+          find nodes -name "node.yaml" -exec python3 .github/scripts/validate_node_schema.py {} \;
+          
+      - name: Validate Cross-References
+        run: |
+          python3 .github/scripts/validate_breadcrumbs.py
+          
+      - name: Check Detection Pattern Coverage
+        run: |
+          python3 .github/scripts/validate_detection_coverage.py

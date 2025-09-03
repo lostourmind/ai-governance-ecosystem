@@ -11,6 +11,16 @@ framework_constraints: "preservation_rules_acknowledged"
 modification_authority: "create_only"
 collaboration_phase: "knowledge_contribution_only"
 
+MANDATORY_SCHEMA_COMPLIANCE:
+  node_yaml_format: "MUST_FOLLOW_BREADCRUMB_STRUCTURE_EXACTLY"
+  prohibited_custom_fields: "NO_SCHEMA_VERSION_VERSION_LIFECYCLE_PHASE_INPUTS_OUTPUTS"
+  required_validation: "python3 validate_node_schema.py node.yaml"
+  
+schema_enforcement_checkpoint:
+  before_creation: "Review breadcrumb structure requirements"
+  during_creation: "Follow CoreXY node.yaml as exact template"
+  after_creation: "Run validation script to confirm compliance"
+
 FRAMEWORK_MODIFICATION_RESTRICTIONS:
   existing_files: PROHIBITED_FROM_MODIFICATION
   directory_structure: PROHIBITED_FROM_CHANGES
