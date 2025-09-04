@@ -1,4 +1,4 @@
-version: '1.1'
+version: '1.2'
 last_updated: '2025-09-02T00:00:00Z'
 repo:
   id: lostourmind/ai-governance-ecosystem
@@ -9,6 +9,7 @@ repo:
 framework_references:
   rules_ref: nodes/_framework/node_assignment_rules.yaml
   node_template_ref: nodes/_framework/templates/node/
+  handoff_templates_ref: nodes/_framework/handoff_templates.md
   detection_patterns_ref: nodes/_framework/detection_patterns.yaml
   schema_validation_ref: nodes/_framework/schema_validation.yaml
   governance_registry_ref: governance_registry.yaml
@@ -40,6 +41,17 @@ active_nodes:
     status: operational
     domain: it_ot_communication_templates
     enhanced_templates: true
+    
+  - id: project.systems.network_infrastructure
+    path: nodes/project.systems.network_infrastructure/
+    status: pending_schema_compliance
+    domain: network_device_identification_dns_optimization
+
+framework_enhancements:
+  schema_enforcement: "Enhanced node.yaml template specification with prohibited fields"
+  handoff_templates: "Complete template reference for schema compliance"
+  validation_checkpoints: "Systematic compliance verification at creation and post-creation"
+  multi_platform_collaboration: "Empirically validated platform behavioral patterns"
 
 governance:
   disaster_recovery_roadmap: governance/framework_recovery_roadmap.md
@@ -54,3 +66,5 @@ mutation_log:
   - [2025-09-02] Multi-platform collaboration patterns documented
   - [2025-09-02] Enhanced governance with empirical platform insights
   - [2025-09-02] Five operational nodes deployed with template enhancements
+  - [2025-09-02] Schema validation enhanced with complete template specification
+  - [2025-09-02] Network infrastructure node created pending schema compliance

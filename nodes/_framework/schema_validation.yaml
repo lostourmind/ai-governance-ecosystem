@@ -15,6 +15,43 @@ node_yaml_schema:
         required_fields: [registry_path, registry_checksum_sha256]
     - updated_at: "ISO_8601_timestamp"
 
+# Add to existing schema_validation.yaml
+node_yaml_template:
+  required_structure: |
+    node_id: "{node_domain_path}"
+    title: "Project {Category} {Domain}"
+    breadcrumbs:
+      node_dir: "nodes/{node_domain_path}"
+      node_yaml_raw: "https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/{node_domain_path}/node.yaml"
+      node_yaml_web: "https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/{node_domain_path}/node.yaml"
+      artifacts:
+      - path: "nodes/{node_domain_path}/README.md"
+        raw_url: "https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/{node_domain_path}/README.md"
+        web_url: "https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/{node_domain_path}/README.md"
+      - path: "nodes/{node_domain_path}/constraints.yaml"
+        raw_url: "https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/{node_domain_path}/constraints.yaml"
+        web_url: "https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/{node_domain_path}/constraints.yaml"
+      - path: "nodes/{node_domain_path}/knowledge_base.yaml"
+        raw_url: "https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/{node_domain_path}/knowledge_base.yaml"
+        web_url: "https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/{node_domain_path}/knowledge_base.yaml"
+      - path: "nodes/{node_domain_path}/supplement_prompt.md"
+        raw_url: "https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/{node_domain_path}/supplement_prompt.md"
+        web_url: "https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/{node_domain_path}/supplement_prompt.md"
+      registry:
+        path: "governance_registry.yaml"
+        raw_url: "https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/governance_registry.yaml"
+        web_url: "https://github.com/lostourmind/ai-governance-ecosystem/blob/main/governance_registry.yaml"
+        checksum_sha256: "{current_governance_registry_checksum}"
+    governance:
+      registry_path: "governance_registry.yaml"
+      registry_checksum_sha256: "{current_governance_registry_checksum}"
+    updated_at: "{iso_8601_timestamp}"
+
+  substitution_variables:
+    node_domain_path: "Replace with flat path (e.g., project.systems.network_infrastructure)"
+    current_governance_registry_checksum: "Replace with actual SHA-256 of governance_registry.yaml"
+    iso_8601_timestamp: "Replace with current UTC timestamp (e.g., 2025-09-02T00:00:00Z)"
+
   prohibited_fields:
     - schema_version
     - version
@@ -38,7 +75,7 @@ schemas:
     - detection_patterns.yaml
     - schema_validation.yaml
     - governance_registry.yaml
-    
+
   validation_requirements:
     - flat_path_naming
     - cross_file_consistency
@@ -46,46 +83,46 @@ schemas:
     - detection_integration
     - governance_alignment
     - collaboration_pattern_recognition
-    
+
   knowledge_base:
     required_keys:
       - node_info.path
       - node_info.description
       - platform_constraints
       - validation_criteria
-      
+
   constraints:
     required_keys:
       - constraints
       - dependencies
-      
+
   supplement_prompt:
     required_sections:
       - node_context
-      - Node-Specific Context Injection
+      - "Node-Specific Context Injection"
       - Validation Requirements
 
 # Format enforcement rules
 format_enforcement:
   node_creation_validation:
-    - "node_yaml_must_follow_breadcrumb_structure_exactly"
-    - "no_custom_schema_fields_permitted"
-    - "all_artifacts_require_complete_url_mapping"
-    - "governance_checksum_validation_mandatory"
-    
+    - node_yaml_must_follow_breadcrumb_structure_exactly
+    - no_custom_schema_fields_permitted
+    - all_artifacts_require_complete_url_mapping
+    - governance_checksum_validation_mandatory
+
   framework_modification_restrictions:
-    - "framework_files_modification_prohibited_without_authorization"
-    - "schema_changes_require_version_increment"
-    - "cross_reference_integrity_must_be_maintained"
+    - framework_files_modification_prohibited_without_authorization
+    - schema_changes_require_version_increment
+    - cross_reference_integrity_must_be_maintained
 
 # Validation checkpoints
 validation_checkpoints:
   pre_commit:
-    - "validate_node_yaml_schema_compliance"
-    - "check_framework_file_modification_authorization"
-    - "verify_cross_reference_integrity"
-    
+    - validate_node_yaml_schema_compliance
+    - check_framework_file_modification_authorization
+    - verify_cross_reference_integrity
+
   post_creation:
-    - "confirm_detection_pattern_coverage"
-    - "validate_breadcrumb_accuracy"
-    - "test_knowledge_injection_capability"
+    - confirm_detection_pattern_coverage
+    - validate_breadcrumb_accuracy
+    - test_knowledge_injection_capability
