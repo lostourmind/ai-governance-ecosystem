@@ -26,6 +26,11 @@ active_nodes:
     status: operational
     domain: ai_prompt_optimization
     
+  - id: project.coding.web_development.vanilla
+    path: nodes/project.coding.web_development.vanilla/
+    status: operational
+    domain: vanilla_html_css_javascript_fundamentals
+    
   - id: project.documentation.operations_manual
     path: nodes/project.documentation.operations_manual/
     status: operational
@@ -44,7 +49,7 @@ active_nodes:
     
   - id: project.systems.network_infrastructure
     path: nodes/project.systems.network_infrastructure/
-    status: pending_schema_compliance
+    status: operational
     domain: network_device_identification_dns_optimization
 
 framework_enhancements:
@@ -67,4 +72,5 @@ mutation_log:
   - [2025-09-02] Enhanced governance with empirical platform insights
   - [2025-09-02] Five operational nodes deployed with template enhancements
   - [2025-09-02] Schema validation enhanced with complete template specification
-  - [2025-09-02] Network infrastructure node created pending schema compliance
+  - [2025-09-02] Network infrastructure node created and validated
+  - [2025-09-02] Vanilla web development node created with schema compliance

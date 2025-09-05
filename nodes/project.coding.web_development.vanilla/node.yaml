@@ -1,0 +1,29 @@
+node_id: "project.coding.web_development.vanilla"
+title: "Project Coding Web Development Vanilla"
+breadcrumbs:
+  node_dir: "nodes/project.coding.web_development.vanilla"
+  node_yaml_raw: "https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.coding.web_development.vanilla/node.yaml"
+  node_yaml_web: "https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.coding.web_development.vanilla/node.yaml"
+  artifacts:
+  - path: "nodes/project.coding.web_development.vanilla/README.md"
+    raw_url: "https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.coding.web_development.vanilla/README.md"
+    web_url: "https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.coding.web_development.vanilla/README.md"
+  - path: "nodes/project.coding.web_development.vanilla/constraints.yaml"
+    raw_url: "https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.coding.web_development.vanilla/constraints.yaml"
+    web_url: "https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.coding.web_development.vanilla/constraints.yaml"
+  - path: "nodes/project.coding.web_development.vanilla/knowledge_base.yaml"
+    raw_url: "https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.coding.web_development.vanilla/knowledge_base.yaml"
+    web_url: "https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.coding.web_development.vanilla/knowledge_base.yaml"
+  - path: "nodes/project.coding.web_development.vanilla/supplement_prompt.md"
+    raw_url: "https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.coding.web_development.vanilla/supplement_prompt.md"
+    web_url: "https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.coding.web_development.vanilla/supplement_prompt.md"
+  registry:
+    path: "governance_registry.yaml"
+    raw_url: "https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/governance_registry.yaml"
+    web_url: "https://github.com/lostourmind/ai-governance-ecosystem/blob/main/governance_registry.yaml"
+    checksum_sha256: "f0f68f35e50d5187f1805195f91e1c34d957a831938fb9ea0345c16fb9d81871"
+governance:
+  registry_path: "governance_registry.yaml"
+  registry_checksum_sha256: "f0f68f35e50d5187f1805195f91e1c34d957a831938fb9ea0345c16fb9d81871"
+updated_at: "2025-09-05T00:00:00Z"
+

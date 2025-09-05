@@ -1,5 +1,5 @@
 # Node Assignment Rules - Framework Routing Logic
-version: "1.0.0"
+version: "1.1.0"
 last_updated: "2025-09-02T00:00:00Z"
 purpose: "Define routing patterns for flat path node assignment"
 
@@ -11,7 +11,32 @@ routing_patterns:
     examples:
       - "project.coding.klipper.corexy -> nodes/project.coding.klipper.corexy/"
       - "project.coding.prompt_engineering -> nodes/project.coding.prompt_engineering/"
+      - "project.coding.web_development.vanilla -> nodes/project.coding.web_development.vanilla/"
       - "project.coding.web_development.react -> nodes/project.coding.web_development.react/"
+  
+  project_documentation:
+    pattern: "project.documentation.*"
+    path_template: "nodes/project.documentation.{domain}/"
+    examples:
+      - "project.documentation.operations_manual -> nodes/project.documentation.operations_manual/"
+    
+  project_integration:
+    pattern: "project.integration.*" 
+    path_template: "nodes/project.integration.{domain}/"
+    examples:
+      - "project.integration.gemini_api -> nodes/project.integration.gemini_api/"
+    
+  project_support:
+    pattern: "project.support.*"
+    path_template: "nodes/project.support.{domain}/"
+    examples:
+      - "project.support.response_refinement -> nodes/project.support.response_refinement/"
+      
+  project_systems:
+    pattern: "project.systems.*"
+    path_template: "nodes/project.systems.{domain}/"
+    examples:
+      - "project.systems.network_infrastructure -> nodes/project.systems.network_infrastructure/"
   
   project_general:
     pattern: "project.*"
@@ -19,19 +44,7 @@ routing_patterns:
     examples:
       - "project.analysis.data_science -> nodes/project.analysis.data_science/"
       - "project.management.workflow -> nodes/project.management.workflow/"
-      
-  project_documentation:
-    pattern: "project.documentation.*"
-    path_template: "nodes/project.documentation.{domain}/"
-    
-  project_integration:
-    pattern: "project.integration.*" 
-    path_template: "nodes/project.integration.{domain}/"
-    
-  project_support:
-    pattern: "project.support.*"
-    path_template: "nodes/project.support.{domain}/"
-    
+
 # Assignment logic rules
 assignment_logic:
   naming_convention: "flat_path_naming"
@@ -79,3 +92,5 @@ mutation_log:
   - "[PHASE:CREATED] Node assignment rules established"
   - "[PHASE:ROUTING] Flat path naming convention enforced"
   - "[PHASE:VALIDATION] Path validation requirements defined"
+  - "[PHASE:ENHANCED] Added systems domain routing pattern"
+  - "[PHASE:UPDATED] Examples updated to reflect current active nodes"

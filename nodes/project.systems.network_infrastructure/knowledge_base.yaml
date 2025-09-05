@@ -1,0 +1,44 @@
+node_info:
+  path: nodes/project.systems.network_infrastructure
+  description: Network device identification, DNS optimization, DHCP/VLAN/IPAM practices, and data integration for asset tracking.
+
+platform_constraints:
+  - Use least-privilege for AD, WMI, and SNMPv3.
+  - Discovery from management subnets only.
+  - Prefer IPAM as source of truth for A/PTR creation.
+  - Enforce change control on DNS/DHCP/IPAM edits.
+
+validation_criteria:
+  - A/PTR parity ≥ 99% in managed ranges.
+  - DNS recursive p95 latency < 50ms on LAN.
+  - DHCP scope utilization target 60–80% per pool.
+  - CMDB device→service mapping completeness ≥ 98%.
+
+device_identification_solutions:
+  - Active Directory: query `dNSHostName`, `servicePrincipalName`, `msDS-AdditionalDnsHostName`.
+  - WMI/CIM: `Win32_ComputerSystem.DNSHostName`, `Win32_NetworkAdapterConfiguration`.
+  - NetBIOS as controlled fallback on legacy segments.
+  - MAC correlation: ARP + switch CAM/LLDP + DHCP leases; OUI sanity checks.
+  - DHCP reservations for infra class devices; static IPs for core with IPAM sync.
+
+dns_optimization_techniques:
+  - Secure dynamic updates; enable aging and scavenging; scheduled stale sweeps.
+  - Maintain forward and reverse zones; automate PTR from IPAM.
+  - TTL policy: infra 1–24h; apps 5–15m during migrations.
+  - Coordinate secondaries via NOTIFY + IXFR; validate SOA/NS glue; check EDNS/DNSSEC.
+
+database_integration_strategies:
+  - Asset DB keys: device_uuid, fqdn, mgmt_ip; track owner, location, lifecycle.
+  - Ingest from DHCP/DNS/switches/hypervisors; dedupe by UUID+MAC set.
+  - Service→host mapping with labels and ports; record dependencies and SLOs.
+  - Drift detection and event-driven reconciliation on state changes.
+
+troubleshooting_procedures:
+  - Connectivity ladder: link→VLAN→ARP/ND→gateway→DNS→TLS. Use ping/traceroute/tcping.
+  - Name issues: stale PTR/FWD, duplicate A, split-DNS, cache poisoning suspicion.
+  - Performance: TCAM/CPU, buffer drops, duplex mismatch, QoS misclass.
+  - Security: rogue DHCP/DNS, NAC posture, mDNS containment on L3 boundaries.
+
+references:
+  - RFC 1918, RFC 4193, RFC 6762, RFC 6763
+  - NIST SP 800-81r2

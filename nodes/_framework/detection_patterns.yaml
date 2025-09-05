@@ -21,16 +21,30 @@ patterns:
     - react
     - app router
     - pages router
+    
+  project.coding.web_development.vanilla:
+    - vanilla javascript
+    - html
+    - css
+    - dom manipulation
+    - vanilla js
+    - plain html
+    - css grid
+    - flexbox
+    - web fundamentals
+    
   project.coding.SQL.DOMO:
     - domo
     - beast mode
     - sql
+    
   project.coding.klipper.corexy:
     - klipper
     - corexy
     - 3d printer
     - input shaper
     - firmware
+    
   project.coding.prompt_engineering:
     - prompt engineering
     - prompt design
@@ -44,6 +58,9 @@ patterns:
     - training guide
     - documentation
     - microsoft office
+    - powerpoint
+    - word
+    - excel
     
   project.integration.gemini_api:
     - gemini api
@@ -56,4 +73,15 @@ patterns:
     - ot support
     - ticket response
     - technical communication
-    - escalation 
+    - escalation
+    
+  project.systems.network_infrastructure:
+    - network infrastructure
+    - dns
+    - dhcp
+    - device identification
+    - network troubleshooting
+    - active directory
+    - mac address
+    - reverse dns
+    - ip address

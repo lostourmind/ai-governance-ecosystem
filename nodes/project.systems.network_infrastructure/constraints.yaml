@@ -1,0 +1,22 @@
+constraints:
+  security:
+    - SNMPv3 only; secrets in a manager; rotate credentials.
+    - Restrict discovery tools to mgmt subnets; log access.
+  compliance:
+    - Change tickets required for DNS/DHCP/IPAM edits; audit trails retained.
+    - Time-box policy exceptions; track remediation SLAs by severity.
+  performance:
+    - Resolver p95 < 50ms; DHCP offer p95 < 100ms.
+    - Polling intervals ≥ 5m on core; rate-limit trap storms.
+  operations:
+    - Automate PTR from IPAM; weekly scavenging; monthly inventory attestation.
+
+dependencies:
+  runtime:
+    - python3 for repository schema validators
+  tools:
+    - dig, nslookup, PowerShell, tcping, snmpwalk
+  services:
+    - Active Directory, DNS, DHCP, IPAM, NMS/SIEM
+
+

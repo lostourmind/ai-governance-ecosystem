@@ -1,0 +1,128 @@
+title: Vanilla Web Development Knowledge Base
+html_fundamentals:
+  principles:
+    - Use semantic elements for structure: header, nav, main, section, article, aside, footer
+    - One main landmark per document
+    - Use headings in order. No skipping levels for style
+    - Associate labels and controls with for and id
+    - Describe images with alt. Use empty alt for decorative images
+    - Set language on html and direction when needed
+    - Prefer lists for grouped items. Tables only for data
+  forms:
+    - Validate with native attributes: required, pattern, min, max, step
+    - Use input types: email, url, number, date to get free validation and keyboards
+    - Group related fields with fieldset and legend
+    - Provide error messages bound via aria describedby
+  seo:
+    - Title under 60 chars. Meta description 150 to 160 chars
+    - One h1 that describes page purpose
+    - Use canonical link to avoid duplicates
+    - Mark up content with structured data when relevant
+  accessibility:
+    - Every interactive control must be reachable by keyboard
+    - Visible focus indicator must meet 3 to 1 contrast
+    - Provide names, roles, and states via semantics or ARIA
+    - Respect reduced motion. Gate animations with prefers reduced motion
+css_styling_techniques:
+  layout:
+    - Flexbox for one dimensional alignment and distribution
+    - Grid for two dimensional layouts and composition
+    - Container queries for truly modular components
+    - Use minmax and auto fit for responsive tracks
+  responsive:
+    - Mobile first. Add media queries at content breakpoints
+    - Use fluid sizing with clamp and percentages
+    - Prefer logical properties: margin block, padding inline
+  tokens_and_architecture:
+    - Define custom properties for color, spacing, radius, z index
+    - Scope component variables under a class namespace
+    - Use BEM or utility first naming for predictability
+    - Avoid deep selectors. Keep specificity low
+  modern_features:
+    - Cascade layers for predictable overrides
+    - @supports to isolate progressive features
+    - accent color for native form controls
+vanilla_javascript_development:
+  language:
+    - Use modules with type="module"
+    - Prefer const and let. Avoid var
+    - Use optional chaining and nullish coalescing to simplify guards
+  dom:
+    - Query once. Cache references
+    - Event delegation via closest on container nodes
+    - Use classList to toggle state. Avoid inline styles
+  async:
+    - Use fetch with async await
+    - Abort in flight requests with AbortController
+    - Backoff and retry for transient failures
+  state:
+    - Derive state from DOM where possible
+    - Keep a single source of truth per component
+    - Persist small user preferences in localStorage. Version keys
+  browser_apis:
+    - IntersectionObserver for lazy loading
+    - ResizeObserver for responsive logic
+    - History API for simple routing
+    - Clipboard API for copy and paste
+project_structure_and_workflow:
+  structure:
+    - Keep html, css, js under clear folders
+    - Co locate small component files where practical
+  tooling_lightweight:
+    - Use npm scripts for simple tasks
+    - Use esbuild or Vite only if bundling is required
+    - Use editorconfig and a formatter for consistency
+  debugging:
+    - Use breakpoints and the network panel
+    - Log with labels and guard behind a debug flag
+  cross_browser:
+    - Test on Chromium, Firefox, Safari
+    - Use @supports and feature detection for fallbacks
+performance_optimization:
+  network:
+    - Compress and cache assets. Set immutable for hashed files
+    - Preload critical assets only when beneficial
+    - Defer non critical scripts. Remove unused dependencies
+  rendering:
+    - Avoid layout thrash. Batch reads and writes
+    - Use transform and opacity for animations
+    - Prefer CSS animations over JS when possible
+  images:
+    - Use responsive images with srcset and sizes
+    - Prefer AVIF or WebP. Provide fallbacks if needed
+    - Lazy load offscreen media
+security_considerations:
+  client_side:
+    - Never use eval or Function constructor
+    - Escape and sanitize any HTML from untrusted sources
+    - Use rel="noopener" on target="_blank" links
+  headers_recommended:
+    - Content Security Policy
+    - Referrer Policy
+    - Permissions Policy
+testing_approaches:
+  strategy:
+    - Unit test pure logic
+    - Use web test runners for DOM behavior
+    - Add accessibility checks in CI
+common_project_patterns:
+  simple_websites:
+    - Landing pages and portfolios
+    - Docs and guides
+    - Business sites with contact forms
+  interactive_apps:
+    - Todo lists and task managers
+    - Calculators and converters
+    - Dashboards with live data
+    - Simple games and learning tools
+styling_challenges:
+  topics:
+    - Responsive grids without frameworks
+    - Form control styling
+    - Transitions and keyframe animations
+    - Theme switching with prefers color scheme and CSS variables
+reference_snippets:
+  fluid_type: "font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);"
+  grid_autofit: "grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));"
+  prefers_reduced_motion: "@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.001ms; animation-iteration-count: 1; transition-duration: 0.001ms; } }"
+  container_query: "@container card (min-width: 480px) { .card__aside { display: block; } }"
