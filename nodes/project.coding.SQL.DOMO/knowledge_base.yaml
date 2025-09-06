@@ -1,0 +1,145 @@
+domain_knowledge:
+  etl_data_flow_optimization:
+    - Incremental loading strategies for large datasets:
+        techniques:
+          - watermark_columns: "Use updated_at or change tracking fields for Magic ETL filters"
+          - hash_diff: "MD5/SHA of concatenated business keys to detect change"
+          - partition_pushdown: "Leverage dataset partitions for input and output tiles"
+          - append_only_streams: "Ingest CDC logs where available; dedupe downstream"
+        performance:
+          - cache_reuse: "Reuse input datasets across flows where possible"
+          - parallelization: "Split heavy transforms into parallel branches then union"
+          - heavy_ops_last: "Push joins, sorts, and window functions as late as possible"
+    - Transform efficiency patterns and performance optimization:
+        - prefer_magic_etl_tiles_over_rdbms_when_possible
+        - prune_columns_early
+        - filter_early_using_indexable_predicates
+        - avoid_cartesian_joins
+        - pre-aggregate_for_dashboards
+    - Error handling and data quality validation frameworks:
+        checks:
+          - schema_drift: "Compare column sets and types on each run; alert on drift"
+          - null_rules: "Critical dimensions must be non-null"
+          - referential_integrity: "FKs validated against conformed dimensions"
+          - threshold_alerts: "Row count deltas outside tolerance"
+        patterns:
+          - quarantine_stream: "Route suspect records to a side dataset with reason"
+          - replayability: "Store last successful watermark and rerun on failure"
+    - Connector-specific optimization techniques:
+        - domo_connector_scheduling_windows: "Run heavy pulls off-peak"
+        - api_pagination_tuning: "Set page size per API limits; respect rate caps"
+        - bulk_extract_endpoints: "Prefer bulk/export APIs over chatty endpoints"
+    - Data flow scheduling and dependency management:
+        - topological_ordering: "Use dataset views to express dependencies"
+        - event_driven_triggers: "Trigger downstream flows on successful upstream completion"
+        - SLA_definitions: "Define expected freshness and failure alerting"
+
+  beast_mode_calculation_mastery:
+    - SQL function optimization within DOMO calculation engine:
+        - use_case_when_over_nested_ifs
+        - push_calc_to_etl_when_character_limit_is_risk
+        - avoid_row-by-row_regex_when_static_mappings_suffice
+    - Aggregation strategies for complex business logic:
+        - conditional_aggregates_with_SUM(CASE ...)
+        - window_functions_in_views_for_rank_percentile
+    - Conditional logic patterns that maximize performance:
+        - short_circuit_conditions
+        - normalized_lookup_tables_for_mappings
+    - Character limit management for complex calculations:
+        - factor_common_subexpressions
+        - move_constants_to_datasets
+    - Cross-dataset calculation techniques and limitations:
+        - prefer_dataset_views_for_joins
+        - understand_card-level_context_and_grain
+
+  dashboard_visualization_excellence:
+    - Chart type selection for optimal storytelling:
+        - time_series: "Line/Area; reserve bars for discrete intervals"
+        - comparison: "Bar/Column; limit categories; sort by value"
+        - distribution: "Histogram/Boxplot alternatives"
+        - relationship: "Scatter with trend"
+    - Layout optimization:
+        - grid_alignment
+        - consistent_margins
+        - Z-pattern_reading_flow
+        - above_the_fold_key_kpis
+    - Color and accessibility:
+        - colorblind_safe_palettes
+        - limit_palette_cardinality_to_6
+        - use_semantic_colors_for_status
+    - Interactivity:
+        - drill_paths
+        - filter_cards
+        - dynamic_text_for_context
+    - Mobile responsiveness:
+        - single_column_prioritization
+        - tile_resizing_rules
+        - touch_target_minimums
+
+  data_governance_implementation:
+    - User permissions and access control:
+        - groups_over_individuals
+        - least_privilege
+        - dataset-level_policies
+        - PDP_row_level_filters
+    - Data certification and quality:
+        - certified_badges_with_owners
+        - validation_checklists_per_release
+    - Audit trail and compliance:
+        - activity_logs_review
+        - change_log_datasets
+    - Data lineage and impact:
+        - lineage_graph_export
+        - dependency_matrices_for_change_impact
+    - Security configuration:
+        - PII_tokenization_where_possible
+        - encryption_in_transit_and_at_rest
+        - secrets_management_for_connectors
+
+  platform_integration_expertise:
+    - API connector configuration and optimization:
+        - oauth_token_rotation_policy
+        - pagination_and_backoff_strategies
+    - Custom app development:
+        - AppStudio_componentization
+        - external_embeds_governed
+    - Federated data architecture:
+        - live_queries_where_latency_allows
+        - hybrid_federation_with_caching
+    - Real-time streaming configuration:
+        - streaming_connectors_and_webhooks
+        - microbatch_windows_1-5_min
+    - Third-party tool integration patterns:
+        - reverse_etl_from_domo
+        - bidirectional_sync_contracts
+
+implementation_guidance:
+  beginner_friendly_approaches:
+    - Start with pre-built connectors before custom ETL development
+    - Use DOMO's drag-and-drop ETL interface for initial data flows
+    - Implement basic Beast Mode calculations using simple aggregations
+    - Begin with standard chart types before custom visualizations
+  intermediate_techniques:
+    - Develop complex ETL transformations using Magic ETL advanced features
+    - Create sophisticated Beast Mode calculations with conditional logic
+    - Design interactive dashboards with drill-down capabilities
+    - Implement data governance workflows for team collaboration
+  expert_level_guidance:
+    - Optimize large-scale ETL performance through advanced partitioning
+    - Develop custom calculations spanning multiple datasets efficiently
+    - Architect enterprise-wide dashboard governance frameworks
+    - Build complex federated data environments with real-time updates
+
+domo_project_types:
+  executive_reporting_dashboards:
+    - C-suite KPI monitoring with real-time updates
+    - Board presentation dashboards with executive summaries
+    - Financial performance tracking with variance analysis
+  operational_analytics_solutions:
+    - Sales pipeline analysis with forecasting capabilities
+    - Customer service metrics with SLA monitoring
+    - Supply chain visibility with exception reporting
+  data_integration_implementations:
+    - Multi-source data consolidation for unified reporting
+    - Real-time streaming data processing for operational insights
+    - Legacy system modernization through DOMO connectors

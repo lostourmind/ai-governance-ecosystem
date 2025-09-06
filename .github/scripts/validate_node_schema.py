@@ -60,24 +60,35 @@ sha = h.hexdigest()
 with open(NODE_PATH, "r", encoding="utf-8") as f:
     node_text = f.read()
 
-# 4) Prohibited fields check (simple substring scan, whole-word-ish)
+# 4) Prohibited fields check
 for key in PROHIBITED:
     if re.search(rf'(^|\s){re.escape(key)}\s*:', node_text):
         fail(f"Prohibited field present: {key}")
 
-# 5) Exact structure check except timestamp value
-#    Extract updated_at line and replace it with a placeholder to compare
+# 5) Extract updated_at
 m = re.search(r'updated_at:\s*"([^"]+)"\s*$', node_text.strip(), re.M)
 if not m:
     fail('Missing updated_at field')
 ts = m.group(1)
 
-# 6) Timestamp sanity (very light ISO 8601 Z)
+# 6) Timestamp format check
 if not re.match(r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$', ts):
     fail('updated_at must be ISO8601 UTC ending with Z, e.g. 2025-09-05T00:00:00Z')
 
-# 7) Check both checksum fields match the registry hash
+# 7) Check checksum fields
 if f'checksum_sha256: "{sha}"' not in node_text:
-    fail("Breadcrumbs registry.checksum_sha256 does not match governance_registry.yaml")
+    fail("Breadcrumbs.registry.checksum_sha256 does not match governance_registry.yaml")
 if f'registry_checksum_sha256: "{sha}"' not in node_text:
-    fail("governance.registry_checksum_sha256 does not match go
+    fail("governance.registry_checksum_sha256 does not match governance_registry.yaml")
+
+# 8) Compare to template
+expected = TEMPLATE_FIXED.format(SHA=sha, TS=ts).strip()
+if node_text.strip() != expected:
+    print("Expected template (with your checksum and timestamp):\n")
+    print(expected)
+    print("\n-----\nFound node.yaml:\n")
+    print(node_text.strip())
+    fail("node.yaml does not match the required template exactly.")
+
+print("OK: node.yaml is schema-compliant.")
+sys.exit(0)

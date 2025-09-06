@@ -1,87 +1,84 @@
-# Enhanced detection patterns configuration
-node_prioritization:
-  most_specific_wins: true
+version: '1.2'
+last_updated: '2025-09-06T00:00:00Z'
+repo:
+  id: lostourmind/ai-governance-ecosystem
+  branch: main
+  raw_base: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/
+  web_base: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/
+  
+framework_references:
+  rules_ref: nodes/_framework/node_assignment_rules.yaml
+  node_template_ref: nodes/_framework/templates/node/
+  handoff_templates_ref: nodes/_framework/handoff_templates.md
+  detection_patterns_ref: nodes/_framework/detection_patterns.yaml
+  schema_validation_ref: nodes/_framework/schema_validation.yaml
+  governance_registry_ref: governance_registry.yaml
+  universal_wrapper_ref: universal_wrapper.md
+  
+active_nodes:
+  - id: project.coding.klipper.corexy
+    path: nodes/project.coding.klipper.corexy/
+    status: operational
+    domain: 3d_printing_klipper_expertise
+    
+  - id: project.coding.prompt_engineering  
+    path: nodes/project.coding.prompt_engineering/
+    status: operational
+    domain: ai_prompt_optimization
+    
+  - id: project.coding.SQL.DOMO
+    path: nodes/project.coding.SQL.DOMO/
+    status: operational
+    domain: domo_bi_platform_expertise
+    
+  - id: project.coding.web_development.vanilla
+    path: nodes/project.coding.web_development.vanilla/
+    status: operational
+    domain: vanilla_html_css_javascript_fundamentals
+    
+  - id: project.documentation.operations_manual
+    path: nodes/project.documentation.operations_manual/
+    status: operational
+    domain: microsoft_documentation_tools
+    
+  - id: project.integration.gemini_api
+    path: nodes/project.integration.gemini_api/
+    status: operational
+    domain: gemini_api_integration
+    
+  - id: project.support.response_refinement
+    path: nodes/project.support.response_refinement/
+    status: operational
+    domain: it_ot_communication_templates
+    enhanced_templates: true
+    
+  - id: project.systems.network_infrastructure
+    path: nodes/project.systems.network_infrastructure/
+    status: operational
+    domain: network_device_identification_dns_optimization
 
-deduplication_rules:
-  enabled: true
-  strategy: exact_then_depth
+framework_enhancements:
+  schema_enforcement: "Enhanced node.yaml template specification with prohibited fields"
+  handoff_templates: "Complete template reference for schema compliance"
+  validation_checkpoints: "Systematic compliance verification at creation and post-creation"
+  multi_platform_collaboration: "Empirically validated platform behavioral patterns"
+  field_name_enforcement: "Validation field consistency across all nodes"
 
-priority_weighting:
-  depth_weight: 1.0
-  keyword_match_weight: 0.5
+governance:
+  disaster_recovery_roadmap: governance/framework_recovery_roadmap.md
+  cold_start_protocol: governance/cold_start_protocol.yaml
+  emergency_governance_minimum:
+    zero_assumption_discipline: ENFORCED
+    framework_modification: PROHIBITED
+    authority_boundaries: [read, analyze, recommend]
 
-fallback_patterns:
-  - key: generic.react
-    applies_to: project.coding.web_development.react.nextjs
-    keywords: [react, nextjs, components]
-
-patterns:
-  project.coding.web_development.react.nextjs:
-    - nextjs
-    - react
-    - app router
-    - pages router
-    
-  project.coding.web_development.vanilla:
-    - vanilla javascript
-    - html
-    - css
-    - dom manipulation
-    - vanilla js
-    - plain html
-    - css grid
-    - flexbox
-    - web fundamentals
-    
-  project.coding.SQL.DOMO:
-    - domo
-    - beast mode
-    - sql
-    
-  project.coding.klipper.corexy:
-    - klipper
-    - corexy
-    - 3d printer
-    - input shaper
-    - firmware
-    
-  project.coding.prompt_engineering:
-    - prompt engineering
-    - prompt design
-    - ai prompting
-    - prompt optimization
-    - context injection
-    
-  project.documentation.operations_manual:
-    - operations manual
-    - sop
-    - training guide
-    - documentation
-    - microsoft office
-    - powerpoint
-    - word
-    - excel
-    
-  project.integration.gemini_api:
-    - gemini api
-    - api integration
-    - google ai
-    - ui bypass
-    
-  project.support.response_refinement:
-    - it support
-    - ot support
-    - ticket response
-    - technical communication
-    - escalation
-    
-  project.systems.network_infrastructure:
-    - network infrastructure
-    - dns
-    - dhcp
-    - device identification
-    - network troubleshooting
-    - active directory
-    - mac address
-    - reverse dns
-    - ip address
+mutation_log:
+  - [2025-09-01] Framework foundation established with clean structure
+  - [2025-09-02] Multi-platform collaboration patterns documented
+  - [2025-09-02] Enhanced governance with empirical platform insights
+  - [2025-09-02] Five operational nodes deployed with template enhancements
+  - [2025-09-02] Schema validation enhanced with complete template specification
+  - [2025-09-02] Network infrastructure node created and validated
+  - [2025-09-02] Vanilla web development node created with schema compliance
+  - [2025-09-06] DOMO BI platform node created with field name enforcement
+  - [2025-09-06] Validation field consistency implemented across framework

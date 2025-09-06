@@ -1,0 +1,52 @@
+governance_anchor:
+  governance_received: "claude_handoff"
+  framework_constraints: "preservation_rules_acknowledged"
+  modification_authority: "create_only"
+  repository_access: "https://github.com/lostourmind/ai-governance-ecosystem"
+  schema_validation_source: "nodes/_framework/schema_validation.yaml"
+
+prohibited_fields_enforcement:
+  never_include_these_fields:
+    - schema_version
+    - version
+    - lifecycle_phase
+    - inputs
+    - outputs
+    - runbook_hooks
+    - constraints_anchor
+    - routing
+    - id
+    - description
+    - assets
+    - breadcrumb_links
+    - navigation
+  validation_checkpoint:
+    before_creation: "Review prohibited fields list - these must never appear in node.yaml"
+    during_creation: "Use ONLY the complete template structure provided in handoff"
+    after_creation: "Verify no prohibited fields were added"
+
+framework_modification_restrictions:
+  existing_files: PROHIBITED_FROM_MODIFICATION
+  directory_structure: PROHIBITED_FROM_CHANGES
+  framework_files: PROHIBITED_FROM_TOUCHING
+  permitted_actions_only:
+    - create_node_directory: "nodes/project.coding.SQL.DOMO/"
+    - create_required_files: "README.md, knowledge_base.yaml, supplement_prompt.md, constraints.yaml, node.yaml"
+    - populate_domain_knowledge: "DOMO_BI_expertise"
+
+validation_requirements:
+  schema_compliance_validation:
+    - "node.yaml matches complete template structure exactly"
+    - "No prohibited fields present in any files"
+    - "All required files created with proper naming"
+    - "Breadcrumb URLs follow GitHub raw/web pattern correctly"
+  domain_expertise_validation:
+    - "Comprehensive DOMO BI platform knowledge documented"
+    - "Practical implementation guidance included"
+    - "Best practices and optimization techniques covered"
+    - "Platform-specific techniques provided"
+  framework_preservation_validation:
+    - "Zero modifications to existing repository structure"
+    - "All cross-references maintain integrity"
+    - "Governance compliance explicitly confirmed"
+    - "No unauthorized framework enhancement suggestions"
