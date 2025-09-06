@@ -1,0 +1,27 @@
+governance_anchor:
+  governance_received: "claude_handoff"
+  framework_constraints: "preservation_rules_acknowledged"
+  modification_authority: "create_only"
+  repository_access: "https://github.com/lostourmind/ai-governance-ecosystem"
+  schema_validation_source: "nodes/_framework/schema_validation.yaml"
+
+framework_modification_restrictions:
+  existing_files: "PROHIBITED_FROM_MODIFICATION"
+  directory_structure: "PROHIBITED_FROM_CHANGES"
+  framework_files: "PROHIBITED_FROM_TOUCHING"
+  permitted_actions_only:
+    - create_node_directory: "nodes/project.integration.rag.agentic/"
+    - create_required_files: "README.md, knowledge_base.yaml, supplement_prompt.md, constraints.yaml, node.yaml"
+    - populate_domain_knowledge: "RAG_AGENTIC_AI_expertise"
+
+validation_requirements:
+  schema_compliance_validation:
+    - "node.yaml matches complete template structure exactly"
+    - "No prohibited fields present in any files"
+    - "All required files created with proper naming"
+    - "Breadcrumb URLs follow GitHub raw/web pattern correctly"
+  framework_preservation_validation:
+    - "Zero modifications to existing repository structure"
+    - "All cross-references maintain integrity"
+    - "Governance compliance explicitly confirmed"
+    - "No unauthorized framework enhancement suggestions"

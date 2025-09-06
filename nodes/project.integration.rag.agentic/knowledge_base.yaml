@@ -1,0 +1,70 @@
+domain_knowledge_requirements:
+  rag_architecture_design:
+    - "Vector database selection and optimization strategies for embedding storage"
+    - "Retrieval algorithms including dense, sparse, and hybrid search approaches"
+    - "Chunking strategies for document processing and context window optimization"
+    - "Embedding model selection and fine-tuning for domain-specific retrieval"
+    - "Context ranking and reranking techniques for relevance improvement"
+
+  agentic_framework_development:
+    - "Multi-agent coordination patterns for complex workflow execution"
+    - "Tool integration and function calling patterns for external system access"
+    - "Memory management for persistent agent state and conversation context"
+    - "Planning and reasoning frameworks for multi-step task decomposition"
+    - "Error handling and fallback strategies for robust agent behavior"
+
+  web_handoff_implementation:
+    - "API endpoint design for seamless agent-to-agent communication"
+    - "Webhook integration patterns for asynchronous workflow triggers"
+    - "Authentication and authorization frameworks for secure handoffs"
+    - "Rate limiting and load balancing for scalable web service integration"
+    - "Protocol standardization for cross-platform agent communication"
+
+  manual_integration_workflows:
+    - "Human-in-the-loop integration points for quality control and oversight"
+    - "Approval workflow design for sensitive or high-stakes operations"
+    - "Documentation generation for manual process hand-off procedures"
+    - "Escalation patterns for complex scenarios requiring human intervention"
+    - "Training material creation for manual workflow adoption"
+
+  api_integration_expertise:
+    - "RESTful API design patterns for agent service communication"
+    - "GraphQL implementation for flexible data retrieval in RAG systems"
+    - "Streaming API patterns for real-time agent communication"
+    - "SDK development for simplified integration with existing systems"
+    - "API versioning and backward compatibility for evolving agent capabilities"
+
+implementation_guidance:
+  beginner_friendly_approaches:
+    - "Start with vector database services like Pinecone or Weaviate for rapid prototyping"
+    - "Use pre-trained embedding models before considering domain-specific fine-tuning"
+    - "Implement simple retrieval patterns before adding complex reranking"
+    - "Begin with single-agent workflows before multi-agent coordination"
+
+  intermediate_techniques:
+    - "Implement hybrid search combining dense and sparse retrieval methods"
+    - "Design multi-agent systems with clear responsibility boundaries"
+    - "Develop robust error handling and retry mechanisms for web integrations"
+    - "Create comprehensive logging and monitoring for agent behavior analysis"
+
+  expert_level_guidance:
+    - "Optimize embedding models through domain-specific fine-tuning and distillation"
+    - "Architect complex multi-agent systems with emergent behavior capabilities"
+    - "Implement advanced reasoning frameworks like chain-of-thought and tree-of-thought"
+    - "Design scalable infrastructure for high-throughput agent operations"
+
+rag_agentic_project_types:
+  enterprise_knowledge_systems:
+    - "Corporate document retrieval with multi-departmental access controls"
+    - "Technical documentation systems with automatic updates and versioning"
+    - "Customer support automation with escalation to human agents"
+
+  research_and_analysis_platforms:
+    - "Scientific literature review and synthesis systems"
+    - "Market research automation with trend analysis capabilities"
+    - "Legal document analysis with case law retrieval and reasoning"
+
+  development_and_integration_solutions:
+    - "Code generation systems with repository context awareness"
+    - "API integration platforms with automatic documentation generation"
+    - "DevOps automation with intelligent troubleshooting capabilities"
