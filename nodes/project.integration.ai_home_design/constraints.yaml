@@ -1,0 +1,29 @@
+governance_anchor:
+  governance_received: "claude_handoff_enhanced"
+  framework_constraints: "preservation_rules_acknowledged"
+  modification_authority: "create_only"
+  repository_access: "framework_accessor_validated"
+  schema_validation_source: "live_framework_templates"
+  governance_checksum: "f0f68f35e50d5187f1805195f91e1c34d957a831938fb9ea0345c16fb9d81871"
+  repository_status: "accessible"
+  timestamp: "2025-09-07T22:33:11.357544+00:00"
+  enhancement_level: "sprint_1.2_framework_integration"
+
+prohibited_fields_for_node_yaml:
+  - schema_version
+  - version
+  - lifecycle_phase
+  - inputs
+  - outputs
+  - runbook_hooks
+  - constraints_anchor
+  - routing
+  - id
+  - description
+  - assets
+  - breadcrumb_links
+  - navigation
+
+template_integrity_policy:
+  field_name_modifications: "ABSOLUTELY_PROHIBITED"
+  template_structure_changes: "ABSOLUTELY_PROHIBITED"

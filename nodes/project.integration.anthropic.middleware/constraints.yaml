@@ -1,0 +1,14 @@
+FRAMEWORK_MODIFICATION_RESTRICTIONS:
+  existing_files: PROHIBITED_FROM_MODIFICATION
+  directory_structure: PROHIBITED_FROM_CHANGES
+  framework_files: PROHIBITED_FROM_TOUCHING
+  permitted_actions_only:
+    - create_node_directory: "nodes/project.integration.anthropic.middleware/"
+    - create_required_files: "README.md, knowledge_base.yaml, supplement_prompt.md, constraints.yaml, node.yaml"
+    - populate_domain_knowledge: "ANTHROPIC_API_MIDDLEWARE_expertise"
+GOVERNANCE_ANCHOR:
+  governance_received: "claude_handoff"
+  framework_constraints: "preservation_rules_acknowledged"
+  modification_authority: "create_only"
+  repository_access: "https://github.com/lostourmind/ai-governance-ecosystem"
+  schema_validation_source: "nodes/_framework/schema_validation.yaml"

@@ -1,0 +1,79 @@
+DOMAIN_KNOWLEDGE_REQUIREMENTS:
+  anthropic_api_integration:
+    - "Claude API authentication and client configuration patterns"
+    - "Rate limiting management and quota optimization strategies"
+    - "Message formatting for handoff generation and validation tasks"
+    - "Streaming vs batch processing patterns for framework operations"
+    - "Error handling and retry mechanisms for API reliability"
+  framework_automation_architecture:
+    - "Handoff template generation with governance compliance enforcement"
+    - "Schema validation automation for node creation workflows"
+    - "Template integrity checking and prohibited field detection"
+    - "Cross-platform handoff orchestration patterns"
+    - "Automated registry update workflows with conflict resolution"
+  middleware_service_design:
+    - "RESTful API design for framework operation endpoints"
+    - "Asynchronous task processing for long-running node creation"
+    - "Database design for tracking handoffs and validation results"
+    - "Caching strategies for template reuse and performance optimization"
+    - "Security patterns for multi-platform API coordination"
+  validation_and_compliance_systems:
+    - "Automated schema compliance checking against framework templates"
+    - "Field name enforcement validation to prevent template drift"
+    - "Governance anchor verification for framework preservation"
+    - "Quality scoring algorithms for cross-platform result comparison"
+    - "Audit trail generation for framework modification tracking"
+  deployment_and_operations:
+    - "Docker containerization for middleware service deployment"
+    - "Environment configuration for API keys and service endpoints"
+    - "Monitoring and alerting for framework operation health"
+    - "Backup and recovery procedures for critical framework data"
+    - "Performance metrics collection and optimization strategies"
+
+IMPLEMENTATION_GUIDANCE:
+  beginner_friendly_approaches:
+    - "Start with simple Claude API client for handoff generation"
+    - "Use environment variables for API key management"
+    - "Implement basic template validation before automation"
+    - "Begin with single-platform handoff execution"
+  intermediate_techniques:
+    - "Develop RESTful middleware API with proper error handling"
+    - "Implement asynchronous processing for batch operations"
+    - "Add database persistence for tracking framework operations"
+    - "Create automated testing suites for validation workflows"
+  expert_level_guidance:
+    - "Architect scalable microservices for framework automation"
+    - "Implement intelligent retry and circuit breaker patterns"
+    - "Design adaptive rate limiting based on API quotas"
+    - "Build comprehensive monitoring and alerting systems"
+
+ANTHROPIC_MIDDLEWARE_PROJECT_TYPES:
+  framework_automation_services:
+    - "Node creation automation with template compliance enforcement"
+    - "Registry update services with conflict detection and resolution"
+    - "Cross-platform handoff orchestration with result comparison"
+  validation_and_quality_systems:
+    - "Schema compliance checking services for framework integrity"
+    - "Template drift detection and prevention systems"
+    - "Governance anchor validation for framework preservation"
+  development_and_integration_platforms:
+    - "Framework development tools with automated testing"
+    - "API integration platforms for multi-platform coordination"
+    - "Performance monitoring and optimization dashboards"
+
+VALIDATION_REQUIREMENTS:
+  schema_compliance_validation:
+    - "node.yaml matches complete template structure exactly"
+    - "No prohibited fields present in any files"
+    - "All required files created with proper naming"
+    - "Breadcrumb URLs follow GitHub raw/web pattern correctly"
+  domain_expertise_validation:
+    - "Comprehensive Anthropic API and middleware knowledge documented"
+    - "Practical implementation guidance included"
+    - "Best practices and optimization techniques covered"
+    - "Framework automation patterns provided"
+  framework_preservation_validation:
+    - "Zero modifications to existing repository structure"
+    - "All cross-references maintain integrity"
+    - "Governance compliance explicitly confirmed"
+    - "No unauthorized framework enhancement suggestions"

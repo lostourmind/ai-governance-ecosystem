@@ -1,0 +1,20 @@
+ai_home_design_visualization_core_functionality:
+  - "Real-time 2D/3D room editing with snapping, collision, and grid alignment using WebGL/WebGPU."
+  - "Physically based rendering (PBR) with HDRI environment lighting and material parameter controls."
+  - "Asset library of parametric furniture, finishes, and fixtures with metadata and variants."
+  - "Floor plan import/export (SVG, DXF, IFC-derived outlines) with scale detection and wall thickness inference."
+  - "Photorealistic stills via path tracing and batch render queue with denoising and tone mapping."
+
+ai_home_design_visualization_integration:
+  - "IFC/BIM ingestion and mapping to lightweight GLB/USDZ assets; use IfcOpenShell for property extraction."
+  - "Product data sync from PIM/ERP (dimensions, SKU, price) with webhook-based cache invalidation."
+  - "Quotation service connection: area takeoff, material schedules, and auto-BOM generation."
+  - "SSO (OAuth2/OIDC) and role-based access for designers, clients, and vendors."
+  - "Export pipelines to AR (USDZ on iOS, GLB for Android) and to CAD (STEP/DWG references)."
+
+ai_home_design_visualization_optimization:
+  - "Progressive asset streaming, mesh LOD, and instance rendering; texture compression (KTX2/BasisU)."
+  - "BVH acceleration structures and tiled loading for large scenes; frustum and occlusion culling."
+  - "GPU memory budgeting and texture atlasing to minimize state changes."
+  - "Edge caching via CDN for assets and HDRIs; WASM workers for geometry ops."
+  - "Telemetry with scene complexity metrics and render timing; A/B tests for UX flows."
