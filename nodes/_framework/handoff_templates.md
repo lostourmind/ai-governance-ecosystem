@@ -100,19 +100,7 @@ MANDATORY_NODE_YAML_COMPLIANCE:
 ```yaml
 PROHIBITED_FIELDS_ENFORCEMENT:
   never_include_these_fields:
-    #- "schema_version"#
-    #- "version"#
-    #- "lifecycle_phase"#
-    #- "inputs"#
-    #- "outputs"#
-    #- "runbook_hooks"#
-    #- "constraints_anchor"#
-    #- "routing"#
-    #- "id"#
-    #- "description"#
-    #- "assets"#
-    #- "breadcrumb_links"#
-    #- "navigation"#
+
   
   validation_checkpoint:
     before_creation: "Review prohibited fields list - these must never appear in node.yaml"
