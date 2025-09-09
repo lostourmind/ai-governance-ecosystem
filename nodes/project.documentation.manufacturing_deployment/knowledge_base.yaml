@@ -1,0 +1,20 @@
+manufacturing_application_module_deployment_core_functionality:
+  - Module packaging and configuration management across plants
+  - Environment-specific parameterization and secrets handling
+  - Install, upgrade, and rollback mechanics with validation gates
+  - Data migration choreography and backfill safety
+  - Observability hooks for performance and quality KPIs
+
+manufacturing_application_module_deployment_integration:
+  - MES/SCADA interface validation and fail-safe behaviors
+  - PLC and equipment protocol mapping (OPC UA, Modbus/TCP)
+  - ERP/MRP integration touchpoints and transaction idempotency
+  - OT/IT network segmentation and firewall rulesets
+  - Time synchronization and historian data alignment
+
+manufacturing_application_module_deployment_optimization:
+  - Blue/green or canary patterns around production shifts
+  - Throughput impact assessment and takt-time protection
+  - Edge resource tuning for HMI, vision, and inference nodes
+  - Spare-part and firmware version alignment to app builds
+  - Post-go-live defect triage and MTTR reduction loops
