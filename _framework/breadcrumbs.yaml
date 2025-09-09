@@ -1,0 +1,22 @@
+active_nodes:
+- project.coding.web_development.gui_framework_integration
+breadcrumbs:
+  project.coding.web_development.gui_framework_integration:
+    artifacts:
+    - path: nodes/project.coding.web_development.gui_framework_integration/README.md
+      raw_url: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.coding.web_development.gui_framework_integration/README.md
+      web_url: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.coding.web_development.gui_framework_integration/README.md
+    - path: nodes/project.coding.web_development.gui_framework_integration/constraints.yaml
+      raw_url: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.coding.web_development.gui_framework_integration/constraints.yaml
+      web_url: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.coding.web_development.gui_framework_integration/constraints.yaml
+    - path: nodes/project.coding.web_development.gui_framework_integration/knowledge_base.yaml
+      raw_url: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.coding.web_development.gui_framework_integration/knowledge_base.yaml
+      web_url: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.coding.web_development.gui_framework_integration/knowledge_base.yaml
+    - path: nodes/project.coding.web_development.gui_framework_integration/supplement_prompt.md
+      raw_url: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.coding.web_development.gui_framework_integration/supplement_prompt.md
+      web_url: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.coding.web_development.gui_framework_integration/supplement_prompt.md
+    governance_name: project.coding.web_development.gui_framework_integration
+    node_dir: nodes/project.coding.web_development.gui_framework_integration
+    node_yaml_raw: https://raw.githubusercontent.com/lostourmind/ai-governance-ecosystem/main/nodes/project.coding.web_development.gui_framework_integration/node.yaml
+    node_yaml_web: https://github.com/lostourmind/ai-governance-ecosystem/blob/main/nodes/project.coding.web_development.gui_framework_integration/node.yaml
+updated_at: '2025-09-09T22:54:22.043253+00:00'
